@@ -37,6 +37,7 @@ public class PlanetRotationControls : MonoBehaviour {
 
     private bool doubleClick;
     private bool firstClick;
+    public RaycastHit hit;
 
     public bool canRotateTowardsDestPoint;
     private CameraZoomControls camZoomControls;
@@ -94,7 +95,6 @@ public class PlanetRotationControls : MonoBehaviour {
 
     private void SphereMouseControl() {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
         //Drag controls of planet
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1")) {

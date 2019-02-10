@@ -13,4 +13,6 @@ public class Trees : MonoBehaviour {
             trees.Add(other.gameObject);
         }     
     }
+
+    bool test = (1 == 1);
 }

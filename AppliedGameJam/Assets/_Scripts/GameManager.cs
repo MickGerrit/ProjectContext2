@@ -50,16 +50,19 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+    //Calculate C02
     public void CalculateC02()
     {
         stats.co2 = stats.co2 - ((co2Force - treeList.trees.Count)/100);
     }
 
+    //End Player Turn
     public void EndPlayerTurn()
     {
         turnSystem.Turn = TurnSystem.turn.GameTurn;
     }
 
+    //Game Turn: Fastforward Duration
     IEnumerator GameTurnCycle()
     {
         yield return new WaitForSeconds(gameTurnDuration);
