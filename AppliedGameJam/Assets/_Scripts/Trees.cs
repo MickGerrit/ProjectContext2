@@ -11,7 +11,7 @@ public class Trees : MonoBehaviour {
         if (other.gameObject.tag == "Tree")
         {
             trees.Add(other.gameObject);
-        }     
+        }
     }
 
     bool test = (1 == 1);
