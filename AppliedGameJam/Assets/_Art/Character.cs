@@ -51,13 +51,13 @@ public class Character : MonoBehaviour
 
         if (Action == 0)
         {
-            Debug.Log("Standing");
+            //Debug.Log("Standing");
             CharacterAnimator.SetBool("Standing", true);
             StartCoroutine(StandTimer());
         }
         if (Action == 1)
         {
-            Debug.Log("Walking");
+            //Debug.Log("Walking");
             CharacterAnimator.SetBool("Walking", true);
             transform.rotation = wantedRot;
             StartCoroutine(WalkTimer());
@@ -65,13 +65,13 @@ public class Character : MonoBehaviour
         }
         if (Action == 2)
         {
-            Debug.Log("Waving");
+            //Debug.Log("Waving");
             CharacterAnimator.SetBool("Waving", true);
             StartCoroutine(WaveTimer());
         }
         if (Action == 3)
         {
-            Debug.Log("Jumping");
+            //Debug.Log("Jumping");
             CharacterAnimator.SetBool("Jumping", true);
             StartCoroutine(JumpTimer());
         }
