@@ -15,13 +15,13 @@ public class PlanetRotationControls : MonoBehaviour {
     private float rotY;
 
     public Camera cam;
-    private bool isRotating;
+    private bool isControllingRotating;
 
     [SerializeField]
-    private float staticRotationSpeed = 20f;
+    public float staticRotationSpeed = 15f;
 
     [SerializeField]
-    private float staticRotationInvokeTime = 2f;
+    public float staticRotationInvokeTime = 2f;
 
     private Quaternion zoomRotDest;
 
@@ -55,7 +55,7 @@ public class PlanetRotationControls : MonoBehaviour {
     public GameObject zoomInButton;
 
     private void Start() {
-        isRotating = false;
+        isControllingRotating = false;
         staticRotationSpeedCur = 0;
         doubleClick = false;
         firstClick = false;
@@ -77,7 +77,7 @@ public class PlanetRotationControls : MonoBehaviour {
 
 
     private void FixedUpdate() {
-        if (!isRotating) {
+        if (!isControllingRotating) {
             Invoke("StaticRotation", staticRotationInvokeTime);
         } else {
             staticRotationSpeedCur = 0;
@@ -99,13 +99,13 @@ public class PlanetRotationControls : MonoBehaviour {
         //Drag controls of planet
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1")) {
             if (hit.transform != null) {
-                isRotating = true;
+                isControllingRotating = true;
             }
         } else if (Input.GetButtonUp("Fire1")) {
-            isRotating = false;
+            isControllingRotating = false;
         }
         
-        if (isRotating) {
+        if (isControllingRotating) {
             CancelInvoke();
             rotX = Input.GetAxis("Mouse X") * rotSpeed * Mathf.Deg2Rad;
             rotY = Input.GetAxis("Mouse Y") * rotSpeed * Mathf.Deg2Rad;
