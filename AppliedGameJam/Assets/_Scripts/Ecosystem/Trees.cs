@@ -10,6 +10,8 @@ public class Trees : MonoBehaviour {
 
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        stats = gameManager.GetComponent<Stats>();
         gameManager.trees.Add(this.gameObject);
     }
 
