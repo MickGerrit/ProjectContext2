@@ -117,7 +117,7 @@ public class Character : MonoBehaviour
             transform.position += transform.forward * Time.deltaTime * speed;
         }
 
-        Debug.Log(WallCheck());
+        //Debug.Log(WallCheck());
         // Does the ray intersect any objects ex\cluding the player layer
         if (WallCheck() && !jump) {
             HitWall();

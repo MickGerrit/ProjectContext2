@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GatherResources : MonoBehaviour {
+public class ReignSystem : MonoBehaviour {
 
     //Reference
     private Stats stats;
+    public SelectionArrow selectionArrow;
 
     public Camera cam;
     private GameObject facedGameObject;
@@ -31,9 +32,9 @@ public class GatherResources : MonoBehaviour {
         if (canGatherWood)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1"))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1") && selectionArrow.prevObject == selectionArrow.hitObject)
             {
-                Debug.Log("CHop Tree!!");
+
                 hit.transform.gameObject.GetComponent<Trees>().GatherTreePerform();
                 //facedGameObject = hit.transform.gameObject;
                 //GameObject instantiatedPrefab;
@@ -47,7 +48,9 @@ public class GatherResources : MonoBehaviour {
 
     private void CanGather()
     {
-        if (Input.GetButtonUp("Fire1"))
+        if (selectionArrow.isSelecting == true)
             canGatherWood = true;
+        else
+            canGatherWood = false;
     }
 }

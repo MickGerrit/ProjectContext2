@@ -12,7 +12,7 @@ public class TurnSystem : MonoBehaviour {
     private GameManager gameManager;
     private GatherResources gatherResources;
     public PlanetRotationControls planetRotationControls;
-    public Text playerTurnText;
+    public Text endTurnText;
 
 	// Use this for initialization
 	void Start () {
@@ -26,15 +26,16 @@ public class TurnSystem : MonoBehaviour {
         {
             // The idle playerState
             case turn.PlayerTurn:
-                playerTurnText.enabled = true;
+                endTurnText.enabled = true;
+                planetRotationControls.staticRotationInvokeTime = 4f;
                 planetRotationControls.staticRotationSpeed = 15f;
                 gatherResources.GatherResourcesPerform();
                 break;
 
             // The wandering playerState
             case turn.GameTurn:
-                planetRotationControls.staticRotationSpeed = 300f;
-                playerTurnText.enabled = false;
+                planetRotationControls.staticRotationInvokeTime = 0f;
+                endTurnText.enabled = false;
                 gameManager.CalculateC02();
                 break;
 

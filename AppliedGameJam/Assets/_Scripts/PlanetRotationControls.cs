@@ -21,7 +21,7 @@ public class PlanetRotationControls : MonoBehaviour {
     public float staticRotationSpeed = 15f;
 
     [SerializeField]
-    public float staticRotationInvokeTime = 2f;
+    public float staticRotationInvokeTime = 6f;
 
     private Quaternion zoomRotDest;
 
@@ -86,8 +86,15 @@ public class PlanetRotationControls : MonoBehaviour {
     }
 
 
-    private void StaticRotation() {
+    public void StaticRotation() {
         staticRotationSpeedCur = Mathf.Lerp(staticRotationSpeedCur, staticRotationSpeed, staticRotationInvokeSmooth*Time.deltaTime);
+        transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * staticRotationSpeedCur);
+        canRotateTowardsDestPoint = false;
+    }
+
+    public void EndTurnRotation()
+    {
+        staticRotationSpeedCur = Mathf.Lerp(staticRotationSpeedCur, staticRotationSpeed, staticRotationInvokeSmooth * Time.deltaTime);
         transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * staticRotationSpeedCur);
         canRotateTowardsDestPoint = false;
     }

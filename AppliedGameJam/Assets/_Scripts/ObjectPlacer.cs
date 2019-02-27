@@ -9,6 +9,7 @@ public class ObjectPlacer : MonoBehaviour {
     public GameObject prefab;
     public Transform planet;
     private bool canPlaceObjects;
+    private RaycastHit hit;
 
     private void Start() {
         canPlaceObjects = false;
@@ -17,18 +18,16 @@ public class ObjectPlacer : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate () {
         if (canPlaceObjects) {
-            RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButton("Fire1")) {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonUp("Fire1")) {
                 facedGameObject =  hit.transform.gameObject;
                     GameObject instantiatedPrefab;
-                        instantiatedPrefab = Instantiate(prefab, hit.point, Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation);
+                    instantiatedPrefab = Instantiate(prefab, hit.point, Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation);
                     instantiatedPrefab.transform.SetParent(planet);
 
                 canPlaceObjects = false;
             }
         }
-
     }
 
     public void CanPlaceAnObject(GameObject chosenObject) {

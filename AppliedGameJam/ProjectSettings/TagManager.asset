@@ -11,6 +11,12 @@ TagManager:
   - Desert
   - Tree
   - ThinkingCloud
+  - Mushroom1
+  - Inhabitant
+  - GatherWood
+  - Bush
+  - GatherBush
+  - MushCap
   layers:
   - Default
   - TransparentFX
@@ -23,8 +29,8 @@ TagManager:
   - Continent
   - Planet
   - Tree
-  - 
-  - 
+  - Selectable
+  - Food
   - 
   - 
   - 
