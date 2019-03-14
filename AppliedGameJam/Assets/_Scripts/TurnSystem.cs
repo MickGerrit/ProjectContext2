@@ -37,6 +37,9 @@ public class TurnSystem : MonoBehaviour {
                 planetRotationControls.staticRotationInvokeTime = 0f;
                 endTurnText.enabled = false;
                 gameManager.CalculateC02();
+                gameManager.CalculatePower();
+                gameManager.CalculateEnergy();
+                gameManager.LoseConditions();
                 break;
 
             // The roaming playerState

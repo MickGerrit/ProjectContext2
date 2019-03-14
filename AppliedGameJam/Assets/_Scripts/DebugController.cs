@@ -34,15 +34,27 @@ public class DebugController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            stats.co2 += 1f;
+            stats.co2 += 10f;
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            stats.food += 1f;
+            stats.food += 10f;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            stats.power += 1f;
+            stats.power += 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            stats.wood += 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            stats.gem += 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            stats.energy += 10f;
         }
     }
 }
