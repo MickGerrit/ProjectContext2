@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public List<GameObject> trees = new List<GameObject>();
+    public List<GameObject> factories = new List<GameObject>();
     public List<GameObject> population = new List<GameObject>();
     public List<GameObject> selection = new List<GameObject>();
+    public List<GameObject> windmill = new List<GameObject>();
+    public List<GameObject> house2 = new List<GameObject>();
+    public List<GameObject> solarflower = new List<GameObject>();
 
     //Reference
     private Trees treeList;
@@ -16,16 +20,24 @@ public class GameManager : MonoBehaviour {
     public Text turnCountText;
     public GameObject buildTreeButton;
     public GameObject buildHouseButton;
+    public GameObject buildHouse2Button;
+    public GameObject buildHouse3Button;
+    public GameObject buildFactoryButton;
+    public GameObject buildWindmillButton;
+    public GameObject buildSolarflowerButton;
+    public GameObject buildFarmButton;
+    public GameObject victoryText;
+    public GameObject failText;
+    public GameObject gameUI;
     private bool buildButtonBool;
     private bool buildButtonDoOnce;
 
-    private int turnCount;
+    public int turnCount;
     private bool doOnce;
     
     [SerializeField]
     private float co2Force;
-    [SerializeField]
-    private float gameTurnDuration;
+    public float gameTurnDuration;
 
     //public Camera cam;
     //public LayerMask layerMask;
@@ -37,6 +49,14 @@ public class GameManager : MonoBehaviour {
     //Notitie
     bool test = (1 == 1);
 
+    //Declare
+    public float windmillEnergy;
+    public float windmillPower;
+    public float solarEnergy;
+    public float solarPower;
+    public float factoryPower;
+
+    public float house2PowerCost;
     // Use this for initialization
     void Start () {
         stats = GetComponent<Stats>();
@@ -47,6 +67,14 @@ public class GameManager : MonoBehaviour {
         turnCount = 0;
         doOnce = true;
         buildButtonBool = true;
+
+        //Resource Variables
+        windmillEnergy = .3f;
+        windmillPower = .15f;
+        solarEnergy = 1f;
+        solarPower = .4f;
+        factoryPower = 1f;
+        house2PowerCost = .4f;
     }
 	
 	// Update is called once per frame
@@ -85,7 +113,23 @@ public class GameManager : MonoBehaviour {
     //Calculate C02
     public void CalculateC02()
     {
-        stats.co2 = stats.co2 - -((co2Force - trees.Count)/100);
+        stats.co2 = stats.co2 - -((co2Force - (trees.Count+ -factories.Count)) /100f);
+    }
+
+    //Calculate Power
+    public void CalculatePower()
+    {
+        stats.power = stats.power + (factories.Count*factoryPower/10f);
+        stats.power = stats.power + (windmill.Count * windmillPower / 10f);
+        stats.power = stats.power + (solarflower.Count * solarPower / 10f);
+        stats.power = stats.power - (house2.Count * house2PowerCost / 10f);
+    }
+
+    //Calculate Energy
+    public void CalculateEnergy()
+    {
+        stats.energy = stats.energy + (windmill.Count*windmillEnergy / 200f);
+        stats.energy = stats.energy + (solarflower.Count * solarEnergy / 200f);
     }
 
     //End Player Turn
@@ -99,14 +143,26 @@ public class GameManager : MonoBehaviour {
         if (buildButtonBool)
         {
             buildHouseButton.SetActive(true);
+            buildHouse2Button.SetActive(true);
+            buildHouse3Button.SetActive(true);
             buildTreeButton.SetActive(true);
+            buildFactoryButton.SetActive(true);
+            buildWindmillButton.SetActive(true);
+            buildSolarflowerButton.SetActive(true);
+            buildFarmButton.SetActive(true);
             buildButtonBool = false;
         }
 
         else if (!buildButtonBool)
         {
             buildHouseButton.SetActive(false);
+            buildHouse2Button.SetActive(false);
+            buildHouse3Button.SetActive(false);
             buildTreeButton.SetActive(false);
+            buildFactoryButton.SetActive(false);
+            buildWindmillButton.SetActive(false);
+            buildSolarflowerButton.SetActive(false);
+            buildFarmButton.SetActive(false);
             buildButtonBool = true;
         }
     }
@@ -122,5 +178,33 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(3f);
         turnSystem.Turn = TurnSystem.turn.PlayerTurn;
         doOnce = true;
+    }
+
+    //Game Ending Condition
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Meteor")
+        {
+            Time.timeScale = 0;
+            gameUI.SetActive(false);
+            if (stats.energy >= 100)
+            {
+                victoryText.SetActive(true);
+            }
+            else
+            {
+                failText.SetActive(true);
+            }
+        }
+    }
+
+    public void LoseConditions()
+    {
+        if(stats.power < 0 || stats.happiness < 0 || stats.co2 > 100)
+        {
+            Time.timeScale = 0;
+            gameUI.SetActive(false);
+            failText.SetActive(true);
+        }
     }
 }
