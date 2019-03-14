@@ -44,7 +44,9 @@ public class PlanetRotationControls : MonoBehaviour {
 
     public Vector2 relativeCursorPosition;
 
-    
+    public float yDestinationDirectionValue = 0.4f;
+
+
     [SerializeField]
     private float middleScreenZoomOutRadius = 0.05f;
 
@@ -138,7 +140,7 @@ public class PlanetRotationControls : MonoBehaviour {
         if (canRotateTowardsDestPoint) {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && doubleClick) {
                 Debug.Log(hit.transform.tag);
-                    zoomRotDest = Quaternion.FromToRotation(hit.point, Vector3.back) * transform.rotation;
+                    zoomRotDest = Quaternion.FromToRotation(hit.point, Vector3.back + new Vector3 (0, yDestinationDirectionValue, 0)) * transform.rotation;
                     if (zoomOut) {
                         ZoomIn();
                     }

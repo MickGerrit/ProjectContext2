@@ -17,6 +17,8 @@ TagManager:
   - Bush
   - GatherBush
   - MushCap
+  - World Space
+  - Space
   layers:
   - Default
   - TransparentFX
@@ -34,7 +36,7 @@ TagManager:
   - 
   - ColliderWall
   - Inhabitant
-  - 
+  - WorldSpaceUI
   - 
   - 
   - 

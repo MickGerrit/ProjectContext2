@@ -2477,110 +2477,12 @@ Transform:
   m_Father: {fileID: 1590728553}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &261025821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 261025822}
-  - component: {fileID: 261025824}
-  - component: {fileID: 261025823}
-  m_Layer: 0
-  m_Name: SelectionArrow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &261025822
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 261025821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.0897942, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &261025823
+--- !u!114 &261025823 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 261025821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1483941737}
   m_Script: {fileID: 11500000, guid: 79950a9beb2fc70489b0b67500a22492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCamLoc: {fileID: 534669905}
-  planet: {fileID: 1205358164}
-  buttonGatherWood: {fileID: 377856208}
-  offsetX: 0
-  offsetY: 3
-  offsetZ: -3
-  canSelect: 0
-  isSelecting: 0
-  isSelectingTree: 0
-  isSelectingInhabitant: 0
-  isSelectingBush: 0
-  cam: {fileID: 534669904}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 3072
-  hitObject: {fileID: 0}
-  prevObject: {fileID: 0}
---- !u!212 &261025824
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 261025821}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d339d0ba42604b9419ab200857e57e2f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &261284493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,7 +4782,7 @@ GameObject:
   - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15613,6 +15515,35 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1263515036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1982901795486642, guid: 8ee3da396330fb643911dc778673355f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1483941737}
+--- !u!114 &1263515039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263515036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922011f01ff13c34b92500c90f010ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamLoc: {fileID: 0}
+  planet: {fileID: 1205358164}
+  offsetX: 0
+  offsetY: 2
+  zPosition: -20
+  canSelect: 0
+  isSelecting: 0
+  cam: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 5120
+  hitObject: {fileID: 0}
+  prevObject: {fileID: 0}
 --- !u!1001 &1278224362
 Prefab:
   m_ObjectHideFlags: 0
@@ -17225,6 +17156,73 @@ Transform:
   m_Father: {fileID: 1083293579}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1483941737
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.0897942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+        type: 2}
+      propertyPath: playerCamLoc
+      value: 
+      objectReference: {fileID: 534669905}
+    - target: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+        type: 2}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1205358164}
+    - target: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+        type: 2}
+      propertyPath: buttonGatherWood
+      value: 
+      objectReference: {fileID: 377856208}
+    - target: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 534669904}
+    - target: {fileID: 114047387298258728, guid: 8ee3da396330fb643911dc778673355f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1495634746
 GameObject:
   m_ObjectHideFlags: 0

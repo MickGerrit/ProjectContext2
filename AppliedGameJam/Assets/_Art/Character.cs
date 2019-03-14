@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
     private Vector3 rayXPositionNew;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         jump = false;
         ChooseAction();
