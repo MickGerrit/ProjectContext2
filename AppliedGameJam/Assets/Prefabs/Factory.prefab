@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4250913059307356}
   - component: {fileID: 198960750336644968}
   - component: {fileID: 199394526368483820}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4469585617327260}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4314262913104782}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519467540267346}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: pCylinder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4907904262934180}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4917651807362274}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4069640661622380}
   - component: {fileID: 198717763466864118}
   - component: {fileID: 199697826388290438}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4720136943962444}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4456396649020658}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4197087856625202}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 4051687277029228}
   - component: {fileID: 198214383668812238}
   - component: {fileID: 199927369975774266}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4857774534346666}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 4608104525741268}
   - component: {fileID: 198413750580780448}
   - component: {fileID: 199236925268091928}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 4453631819414376}
   - component: {fileID: 198729271155750734}
   - component: {fileID: 199309783339922806}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4725969890383718}
   - component: {fileID: 198453602648568964}
   - component: {fileID: 199168929612650940}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4853524395284306}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 4556394017838952}
   - component: {fileID: 33593105899819384}
   - component: {fileID: 23926929699317632}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345592811532800}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 4611863595821422}
   - component: {fileID: 198184705766273548}
   - component: {fileID: 199339980525638356}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4544105188077108}
   - component: {fileID: 114210451730438110}
-  m_Layer: 0
+  - component: {fileID: 114132362613480010}
+  m_Layer: 18
   m_Name: Factory
   m_TagString: Factory
   m_Icon: {fileID: 0}
@@ -338,7 +339,7 @@ GameObject:
   - component: {fileID: 4771741149251640}
   - component: {fileID: 198733823801083094}
   - component: {fileID: 199631464154364052}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4017420396327204}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390953955378008}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: polySurface10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4553375283803048}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,6 +776,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796540228021870}
   m_Mesh: {fileID: 4300000, guid: d8bfb6755454a64438d6160534cdd193, type: 3}
+--- !u!114 &114132362613480010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1872218835245828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationAboutBuilding: Factory
+  maximumOccupanceAmount: 5
+  occupanceAmount: 0
+  sprite: {fileID: 21300000, guid: 1ba491a72ea69984698850c5786d1743, type: 3}
 --- !u!114 &114210451730438110
 MonoBehaviour:
   m_ObjectHideFlags: 1

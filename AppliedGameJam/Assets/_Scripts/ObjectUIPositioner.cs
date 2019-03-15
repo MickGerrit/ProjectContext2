@@ -58,9 +58,9 @@ public class ObjectUIPositioner : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity, buildingLayerMask) && Input.GetButton("Fire1") && doOnce) {
                     doOnce = false;
                     isSelecting = true;
-                    if (hit.transform.gameObject.tag == UITag) {
-                        Debug.Log("Hit worldspace UI"); 
-                    } else hitObject = hit.transform.gameObject;
+                    if (hit.transform.gameObject.tag != UITag) {
+                        hitObject = hit.transform.gameObject;
+                    }
 
                 }
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity) && Input.GetButtonDown("Fire1") && hit.transform.gameObject != hitObject) {

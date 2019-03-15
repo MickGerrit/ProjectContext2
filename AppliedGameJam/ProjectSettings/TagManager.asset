@@ -19,6 +19,15 @@ TagManager:
   - MushCap
   - World Space
   - Space
+  - House1
+  - Seed
+  - Solarflower
+  - Farm
+  - House2
+  - Factory
+  - Windmill
+  - House3
+  - Meteor
   layers:
   - Default
   - TransparentFX
@@ -37,12 +46,12 @@ TagManager:
   - ColliderWall
   - Inhabitant
   - WorldSpaceUI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Farm
+  - Factory
+  - House
+  - HouseTier2
+  - HouseTier3
+  - Space
   - 
   - 
   - 

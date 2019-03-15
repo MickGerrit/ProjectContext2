@@ -365,6 +365,7 @@ MonoBehaviour:
     m_Bits: 256
   prefab: {fileID: 1858757744}
   planet: {fileID: 1205358164}
+  animController: {fileID: 0}
 --- !u!1 &108864523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,13 +4288,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trees: []
+  factories: []
   population: []
   selection: []
+  windmill: []
+  house2: []
+  solarflower: []
   turnCountText: {fileID: 297917563}
   buildTreeButton: {fileID: 0}
   buildHouseButton: {fileID: 0}
+  buildHouse2Button: {fileID: 0}
+  buildHouse3Button: {fileID: 0}
+  buildFactoryButton: {fileID: 0}
+  buildWindmillButton: {fileID: 0}
+  buildSolarflowerButton: {fileID: 0}
+  buildFarmButton: {fileID: 0}
+  victoryText: {fileID: 0}
+  failText: {fileID: 0}
+  gameUI: {fileID: 0}
+  turnCount: 0
   co2Force: 0
   gameTurnDuration: 0
+  windmillEnergy: 0
+  windmillPower: 0
+  solarEnergy: 0
+  solarPower: 0
+  factoryPower: 0
+  house2PowerCost: 0
 --- !u!114 &1137867476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4320,18 +4341,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   co2Slider: {fileID: 308864414}
-  foodSlider: {fileID: 2034875030}
+  happinessSlider: {fileID: 0}
   powerSlider: {fileID: 108864524}
   populationAmount: {fileID: 0}
-  foodAmount: {fileID: 0}
+  happinessAmount: {fileID: 0}
   woodAmount: {fileID: 0}
   powerAmount: {fileID: 0}
+  gemAmount: {fileID: 0}
+  co2Amount: {fileID: 0}
+  energySlider: {fileID: 0}
   co2: 0
   food: 0
   power: 0
   wood: 0
   population: 0
   happiness: 0
+  gem: 0
+  energy: 0
+  seedWoodCost: 1
+  windmillWoodCost: 10
+  house1WoodCost: 15
+  house2WoodCost: 15
+  house2GemCost: 10
+  house3WoodCost: 35
+  house3GemCost: 15
+  farmWoodCost: 20
+  factoryWoodCost: 30
+  solarflowerWoodCost: 40
+  solarflowerGemCost: 20
 --- !u!114 &1137867478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,7 +4601,7 @@ GameObject:
   - component: {fileID: 1210056631}
   - component: {fileID: 1210056630}
   m_Layer: 5
-  m_Name: Plane (1)
+  m_Name: SpacePlane
   m_TagString: Space
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5747,68 +5784,60 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalPosition.y
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4531428730884778, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+    - target: {fileID: 4329484639732682, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 114873837132368436, guid: 8ee3da396330fb643911dc778673355f,
+    - target: {fileID: 114571132879522670, guid: 43c311fc8a569324e825e0acdff3d392,
         type: 2}
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 1982901795486642, guid: 8ee3da396330fb643911dc778673355f, type: 2}
-      propertyPath: m_Name
-      value: BuildingUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 114399471397163626, guid: 8ee3da396330fb643911dc778673355f,
-        type: 2}
-      propertyPath: sceneCamera
-      value: 
-      objectReference: {fileID: 534669904}
-    - target: {fileID: 223504869989248380, guid: 8ee3da396330fb643911dc778673355f,
+    - target: {fileID: 223142046129140252, guid: 43c311fc8a569324e825e0acdff3d392,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 114830812359344796, guid: 8ee3da396330fb643911dc778673355f,
+    - target: {fileID: 114582610940665770, guid: 43c311fc8a569324e825e0acdff3d392,
         type: 2}
       propertyPath: sceneCamera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 1476392162962398, guid: 8ee3da396330fb643911dc778673355f, type: 2}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 114659834702268442, guid: 43c311fc8a569324e825e0acdff3d392,
+        type: 2}
+      propertyPath: sceneCamera
+      value: 
+      objectReference: {fileID: 534669904}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ee3da396330fb643911dc778673355f, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 43c311fc8a569324e825e0acdff3d392, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1681925552
 GameObject:

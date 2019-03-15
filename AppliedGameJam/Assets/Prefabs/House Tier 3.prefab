@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 23634343959567750}
   - component: {fileID: 114612561495876194}
   - component: {fileID: 64010984074378706}
-  m_Layer: 0
+  - component: {fileID: 114577223055446650}
+  m_Layer: 21
   m_Name: House Tier 3
   m_TagString: House3
   m_Icon: {fileID: 0}
@@ -40,7 +41,7 @@ GameObject:
   - component: {fileID: 4018959834693206}
   - component: {fileID: 198157392673618386}
   - component: {fileID: 199258752497823238}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4630518003271980}
   - component: {fileID: 108674331960015116}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,6 +214,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114577223055446650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025185783258854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationAboutBuilding: House tier 3
+  maximumOccupanceAmount: 30
+  occupanceAmount: 0
+  sprite: {fileID: 21300000, guid: a0d8a9055eeb47c4cbacf7e355eef31c, type: 3}
 --- !u!114 &114612561495876194
 MonoBehaviour:
   m_ObjectHideFlags: 1

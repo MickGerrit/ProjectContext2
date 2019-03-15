@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 23055383302259826}
   - component: {fileID: 64939887163450518}
   - component: {fileID: 114176163066658070}
-  m_Layer: 11
+  - component: {fileID: 114245016991490572}
+  m_Layer: 10
   m_Name: PineTree
   m_TagString: Tree
   m_Icon: {fileID: 0}
@@ -112,3 +113,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd64873c18a31247af8fe00f681a1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114245016991490572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148864785735340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationAboutBuilding: Tree
+  maximumOccupanceAmount: 3
+  occupanceAmount: 0
+  sprite: {fileID: 21300000, guid: 86542418e6c7f3d499d9ffb4c300a822, type: 3}
