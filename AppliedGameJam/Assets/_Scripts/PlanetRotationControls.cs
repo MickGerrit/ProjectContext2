@@ -2,6 +2,7 @@
 
 public class PlanetRotationControls : MonoBehaviour {
     public LayerMask layerMask;
+    public LayerMask ignoranceMask;
     [SerializeField]
     private float rotSpeed = 20;
 
@@ -74,6 +75,9 @@ public class PlanetRotationControls : MonoBehaviour {
         SphereMouseControl();
         
         DoubleClick();
+        if (Input.GetButton("Fire1")) {
+            CancelInvoke();
+        }
     }
     
 
@@ -106,7 +110,7 @@ public class PlanetRotationControls : MonoBehaviour {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         //Drag controls of planet
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1")) {
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask)) {
             if (hit.transform != null) {
                 isControllingRotating = true;
             }
@@ -138,7 +142,7 @@ public class PlanetRotationControls : MonoBehaviour {
         
         //Rotation towards double click point
         if (canRotateTowardsDestPoint) {
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && doubleClick) {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && doubleClick && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask)) {
                 Debug.Log(hit.transform.tag);
                     zoomRotDest = Quaternion.FromToRotation(hit.point, Vector3.back + new Vector3 (0, yDestinationDirectionValue, 0)) * transform.rotation;
                     if (zoomOut) {
@@ -156,13 +160,14 @@ public class PlanetRotationControls : MonoBehaviour {
 
 
     private void DoubleClick() {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (inbetweenClicks < inbetweenClicksMaxTime && firstClick) {
-            if (Input.GetButtonDown("Fire1")) {
+            if (Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask)) {
                 doubleClick = true;
             }
         }
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask)) {
             firstClick = true;
         }
 
