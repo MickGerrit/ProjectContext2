@@ -35,7 +35,7 @@ public class Meteor : MonoBehaviour {
                 movDirection = Vector3.MoveTowards(this.transform.position, planet.transform.position, journeyLength / (turns-1));
                 doOnce = false;
             }
-            this.transform.position = Vector3.Slerp(meteorStartPos.transform.position, movDirection, gameManager.gameTurnDuration/1000);
+            this.transform.position = Vector3.Slerp(meteorStartPos.transform.position, movDirection, gameManager.gameTurnDuration/100);
         }
         if (turnSystem.Turn == TurnSystem.turn.PlayerTurn)
             doOnce = true;

@@ -22,7 +22,6 @@ public class Bush : MonoBehaviour {
 
     public void GatherTreePerform()
     {
-        stats.wood += 5f;
         selectionArrow.isSelecting = false;
         //gameManager.trees.Remove(this.gameObject);
         Destroy(transform.gameObject, .1f);

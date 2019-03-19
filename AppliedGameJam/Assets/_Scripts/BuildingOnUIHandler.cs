@@ -5,12 +5,24 @@ using UnityEngine.UI;
 
 public class BuildingOnUIHandler : ObjectSelecter {
 
+    private GameManager gameManager;
+    private Stats stats;
+
     public Text objectInformationBox;
     public Text occupanceAmountBox;
     private GameObject UIBox;
     public Image image;
+    public Animator animController;
+    public Animator animController2;
+    public Animator animController3;
+
+    private bool doOnce;
+
     // Use this for initialization
     private void Start() {
+        gameManager = FindObjectOfType<GameManager>();
+        stats = gameManager.GetComponent<Stats>();
+        doOnce = true;
     }
 
     // Update is called once per frame
@@ -31,16 +43,187 @@ public class BuildingOnUIHandler : ObjectSelecter {
 
     public void AddWorker() {
         Debug.Log("Add Worker");
+
         if (clickedGameObject.GetComponent<Occupance>().occupanceAmount < clickedGameObject.GetComponent<Occupance>().maximumOccupanceAmount) {
-            clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+            if (clickedGameObject.tag == "TownHall")
+            {
+                if (stats.population > 0)
+                {
+                    GameObject inhabitant = gameManager.population[Random.Range(0, gameManager.population.Count-1)];
+                    gameManager.population.Remove(inhabitant);
+                    gameManager.assignedpopulation.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+            }
+            else if (clickedGameObject.tag == "House1")
+            {
+                if(stats.population > 0)
+                {
+                    GameObject inhabitant = gameManager.population[Random.Range(0, gameManager.population.Count-1)];
+                    gameManager.population.Remove(inhabitant);
+                    gameManager.assignedpopulation.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+            }
+            else if (clickedGameObject.tag == "Tree")
+            {
+                if (gameManager.assignedpopulation.Count > 0)
+                {
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.workertree.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+                else
+                    NoWorkers();
+            }
+            else if (clickedGameObject.tag == "Farm")
+            {
+                if (gameManager.assignedpopulation.Count > 0)
+                {
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count - 1)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.workerfactory.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+                else
+                    NoWorkers();
+            }
+            else if (clickedGameObject.tag == "Factory")
+            {
+                if (gameManager.assignedpopulation.Count > 0)
+                {
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.workerfactory.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+                else
+                    NoWorkers();
+            }
+            else if (clickedGameObject.tag == "Mine")
+            {
+                if (gameManager.assignedpopulation.Count > 0)
+                {
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.workermine.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount += 1;
+                }
+                else
+                    NoWorkers();
+            }
         }
     }
 
     public void RemoveWorker() {
         if (clickedGameObject.GetComponent<Occupance>().occupanceAmount > 0) {
-            clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+            if (clickedGameObject.tag == "TownHall")
+            {
+                if(gameManager.assignedpopulation.Count < 1 && (gameManager.workertree.Count + gameManager.workerfactory.Count + gameManager.workermine.Count > 0)){
+                    Debug.Log("Take A Worker");
+                    EveryoneIsWorking();
+                }
+                else
+                {
+                    Debug.Log("Take From TownHall");
+                    int listRange;
+                    if (gameManager.assignedpopulation.Count == 0)
+                        listRange = 0;
+                    else
+                        listRange = gameManager.assignedpopulation.Count-1;
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, listRange)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.population.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+                }
+
+            }
+            else if (clickedGameObject.tag == "House1")
+            {
+                if (gameManager.assignedpopulation.Count < 1 && (gameManager.workertree.Count + gameManager.workerfactory.Count + gameManager.workermine.Count > 0))
+                {
+                    Debug.Log("Take A Worker");
+                }
+                else
+                {
+                    Debug.Log("Take From House");
+                    int listRange;
+                    if (gameManager.assignedpopulation.Count == 0)
+                        listRange = 0;
+                    else
+                        listRange = gameManager.assignedpopulation.Count - 1;
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, listRange)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.population.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+                }
+            }
+            else if (clickedGameObject.tag == "Tree")
+            {
+                    GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    gameManager.workertree.Remove(inhabitant);
+                    gameManager.assignedpopulation.Add(inhabitant);
+                    clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+            }
+            else if (clickedGameObject.tag == "Factory")
+            {
+                GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                gameManager.workerfactory.Remove(inhabitant);
+                gameManager.assignedpopulation.Add(inhabitant);
+                clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+            }
+            else if (clickedGameObject.tag == "Mine")
+            {
+                GameObject inhabitant = gameManager.workermine[Random.Range(0, gameManager.assignedpopulation.Count)];
+                gameManager.workermine.Remove(inhabitant);
+                gameManager.assignedpopulation.Add(inhabitant);
+                clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
+            }
         }
     }
+
+    private void NoWorkers()
+    {
+        if (doOnce)
+        {
+            if (gameManager.assignedpopulation.Count < 1)
+            {
+                Debug.Log("Playing Animation");
+                StartCoroutine(NoWorkersFadeAnimation());
+                doOnce = false;
+            }
+        }
+    }
+
+    private void EveryoneIsWorking()
+    {
+        if (doOnce)
+        {
+            if (gameManager.assignedpopulation.Count < 1)
+            {
+                Debug.Log("Playing Animation");
+                StartCoroutine(EveryoneIsWorkingFadeAnimation());
+                doOnce = false;
+            }
+        }
+    }
+
+
+    IEnumerator NoWorkersFadeAnimation()
+    {
+        animController2.Play("NoWorkersFade");
+        yield return new WaitForSeconds(1.25f);
+        doOnce = true;
+    }
+
+    IEnumerator EveryoneIsWorkingFadeAnimation()
+    {
+        animController3.Play("EveryoneIsWorkingFade");
+        yield return new WaitForSeconds(1.25f);
+        doOnce = true;
+    }
+
 
 
 }

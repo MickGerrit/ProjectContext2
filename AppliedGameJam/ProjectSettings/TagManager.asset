@@ -28,6 +28,9 @@ TagManager:
   - Windmill
   - House3
   - Meteor
+  - UI
+  - TownHall
+  - Mine
   layers:
   - Default
   - TransparentFX
@@ -52,8 +55,8 @@ TagManager:
   - HouseTier2
   - HouseTier3
   - Space
-  - 
-  - 
+  - TownHall
+  - Mine
   - 
   - 
   - 

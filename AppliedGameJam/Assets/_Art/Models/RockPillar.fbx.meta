@@ -1,56 +1,20 @@
 fileFormatVersion: 2
-guid: 2d046e78beceb4c42b8ffa9afa79105a
+guid: 3fc0a67900e8c454bb3912b442113478
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pb-MergedObject-481522_0
-    100004: pb-MergedObject-481522_1
-    100006: Grass_0
-    100008: Grass_1
     400000: //RootNode
-    400002: pb-MergedObject-481522_0
-    400004: pb-MergedObject-481522_1
-    400006: Grass_0
-    400008: Grass_1
-    2300000: pb-MergedObject-481522_0
-    2300002: pb-MergedObject-481522_1
-    2300004: Grass_0
-    2300006: Grass_1
-    3300000: pb-MergedObject-481522_0
-    3300002: pb-MergedObject-481522_1
-    3300004: Grass_0
-    3300006: Grass_1
-    4300000: pb-MergedObject-481522_0
-    4300002: pb-MergedObject-481522_1
-    4300004: Grass_0
-    4300006: Grass_1
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grass_0Mat
-    second: {fileID: 2100000, guid: 72c270a5753130546b00ee2ea5a3fd1b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grass_1Mat
-    second: {fileID: 2100000, guid: 58a6955e3aadd03429eb514a257a752e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pb-MergedObject-481522_0Mat
-    second: {fileID: 2100000, guid: f97f09abb5488b5498d8b541ec0a18e1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pb-MergedObject-481522_1Mat
-    second: {fileID: 2100000, guid: 88d8c530c420c954296ee76099ceeae2, type: 2}
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube1
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -76,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -103,7 +67,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

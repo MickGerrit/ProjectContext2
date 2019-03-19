@@ -59,6 +59,8 @@ public class ObjectPlacer : MonoBehaviour {
             prefab = chosenObject;
         else if (chosenObject.tag == "Solarflower" && stats.wood >= stats.solarflowerWoodCost && stats.gem >= stats.solarflowerGemCost)
             prefab = chosenObject;
+        else if (chosenObject.tag == "TownHall" && (stats.wood >= stats.townhallWoodCost && stats.gem >= stats.townhallGemCost) || chosenObject.tag == "TownHall" && stats.townhallStarter)
+            prefab = chosenObject;
         else
         {
             canPlaceObjects = false;
@@ -76,5 +78,4 @@ public class ObjectPlacer : MonoBehaviour {
         yield return new WaitForSeconds(1.25f);
         doOnce = true;
     }
-
 }

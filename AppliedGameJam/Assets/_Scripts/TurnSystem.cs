@@ -27,9 +27,8 @@ public class TurnSystem : MonoBehaviour {
             // The idle playerState
             case turn.PlayerTurn:
                 endTurnText.enabled = true;
-                planetRotationControls.staticRotationInvokeTime = 4f;
+                planetRotationControls.staticRotationInvokeTime = 6f;
                 planetRotationControls.staticRotationSpeed = 15f;
-                gatherResources.GatherResourcesPerform();
                 break;
 
             // The wandering playerState
@@ -39,6 +38,9 @@ public class TurnSystem : MonoBehaviour {
                 gameManager.CalculateC02();
                 gameManager.CalculatePower();
                 gameManager.CalculateEnergy();
+                gameManager.CalculateWood();
+                gameManager.CalculateGem();
+                gameManager.CalculateHappiness();
                 gameManager.LoseConditions();
                 break;
 

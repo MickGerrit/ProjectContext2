@@ -38,7 +38,7 @@ public class Seed : MonoBehaviour {
     public void HatchPerform()
     {
         GameObject instantiatedPrefab;
-        GameObject prefab = treetypes[Random.Range(0,3)];
+        GameObject prefab = treetypes[Random.Range(0,4)];
         instantiatedPrefab = Instantiate(prefab, this.transform.position, this.transform.rotation);
         instantiatedPrefab.transform.SetParent(planet);
         Destroy(transform.gameObject, .1f);

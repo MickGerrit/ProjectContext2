@@ -8,21 +8,61 @@ public class Trees : MonoBehaviour {
     private GameManager gameManager;
     private SelectionArrow selectionArrow;
     private Stats stats;
+    private TurnSystem turnSystem;
+    private Occupance occupance;
+    public int woodCounter;
+    private bool doOnce = true;
+
+    public Animator animController;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();
+        occupance = this.GetComponent<Occupance>();
+        turnSystem = gameManager.GetComponent<TurnSystem>();
         selectionArrow = FindObjectOfType<SelectionArrow>();
         gameManager.trees.Add(this.gameObject);
+        woodCounter = occupance.maximumOccupanceAmount;
     }
 
-    public void GatherTreePerform()
+    private void Update()
     {
-        stats.wood += 5f;
+        if(turnSystem.Turn == TurnSystem.turn.GameTurn && doOnce && occupance.occupanceAmount > 0)
+        {
+            doOnce = false;
+            for (int i = 0; i < occupance.occupanceAmount; i++)
+            {
+                woodCounter -= 1;
+                stats.woodMultiplier += 1;
+            }
+        }
+
+        if (turnSystem.Turn == TurnSystem.turn.PlayerTurn && woodCounter < 1 && !doOnce)
+        {
+            for(int i = 0; i < occupance.occupanceAmount; i++)
+            {
+                GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.workertree.Count)];
+                gameManager.workertree.Remove(inhabitant);
+                gameManager.assignedpopulation.Add(inhabitant);
+            }
+            StartCoroutine(ChoppedTreeAnimation());
+
+        }
+
+        if (turnSystem.Turn == TurnSystem.turn.PlayerTurn)
+            doOnce = true;
+    }
+
+    IEnumerator ChoppedTreeAnimation()
+    {
+        animController.Play("ChoppedTree");
+        animController.Play("ChoppedTree1");
+        animController.Play("ChoppedTree2");
+        animController.Play("ChoppedTree3");
         selectionArrow.isSelecting = false;
         gameManager.trees.Remove(this.gameObject);
-        Destroy(transform.gameObject, .1f);
+        yield return new WaitForSeconds(1.25f);
+        Destroy(transform.gameObject);
     }
-
 }

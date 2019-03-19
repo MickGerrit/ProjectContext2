@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DebugController : MonoBehaviour {
 
+    private GameManager gameManager;
     private Stats stats;
     public GameObject debugScreen;
 
@@ -11,6 +12,7 @@ public class DebugController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gameManager = FindObjectOfType<GameManager>();
         stats = GetComponent<Stats>();
         debugBool = false;
 	}
@@ -32,29 +34,34 @@ public class DebugController : MonoBehaviour {
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             stats.co2 += 10f;
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             stats.food += 10f;
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             stats.power += 10f;
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            stats.wood += 10f;
+            stats.wood += 10;
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            stats.gem += 10f;
+            stats.gem += 10;
         }
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             stats.energy += 10f;
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            gameManager.turnCount += 1;
+            gameManager.turnCountText.text = gameManager.turnCount.ToString();
         }
     }
 }
