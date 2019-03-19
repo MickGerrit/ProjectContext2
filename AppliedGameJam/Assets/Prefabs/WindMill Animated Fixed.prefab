@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4097484164201382}
   - component: {fileID: 95315896034438804}
-  - component: {fileID: 64692463709026390}
   - component: {fileID: 114436733888588158}
   m_Layer: 0
   m_Name: WindMill Animated Fixed
@@ -71,6 +70,7 @@ GameObject:
   - component: {fileID: 4005812467604374}
   - component: {fileID: 33523873499341316}
   - component: {fileID: 23862771846769194}
+  - component: {fileID: 64543028023554622}
   m_Layer: 0
   m_Name: polySurface5
   m_TagString: Untagged
@@ -218,12 +218,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948251162735756}
   m_Mesh: {fileID: 4300002, guid: bd0ea6b03088e2b42b98d0962dd4f99c, type: 3}
---- !u!64 &64692463709026390
+--- !u!64 &64543028023554622
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142269840198686}
+  m_GameObject: {fileID: 1948251162735756}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -231,7 +231,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300002, guid: bd0ea6b03088e2b42b98d0962dd4f99c, type: 3}
 --- !u!95 &95315896034438804
 Animator:
   serializedVersion: 3

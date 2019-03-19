@@ -98,11 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treetypes:
-  - {fileID: 1081894415263478, guid: c81713403ce8d8e4daf2897b22051adf, type: 2}
-  - {fileID: 1039102216407518, guid: 5ffb91c41140c9e4aadf8888ed8e3073, type: 2}
-  - {fileID: 1817421823657976, guid: df677ff025604204c97c70c9aee6fb53, type: 2}
-  - {fileID: 1093236902755084, guid: 37b800960f277454cb84c247f6dc02f2, type: 2}
-  planet: {fileID: 0}
+  - {fileID: 1327504339601996, guid: c81713403ce8d8e4daf2897b22051adf, type: 2}
+  - {fileID: 1131210938652806, guid: 5ffb91c41140c9e4aadf8888ed8e3073, type: 2}
+  - {fileID: 1810914378169818, guid: 6847aae78d696854280beca0ac56f8e5, type: 2}
+  - {fileID: 1069903170739040, guid: 37b800960f277454cb84c247f6dc02f2, type: 2}
 --- !u!135 &135974220170023050
 SphereCollider:
   m_ObjectHideFlags: 1

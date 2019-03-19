@@ -17,7 +17,7 @@ public class Farm : MonoBehaviour {
 
     public void DestroyFarm()
     {
-        stats.wood += stats.farmWoodCost/3;
+        stats.wood += Mathf.RoundToInt(stats.farmWoodCost/3);
         Destroy(transform.gameObject, .1f);
     }
 }

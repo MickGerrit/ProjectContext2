@@ -8,10 +8,17 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> trees = new List<GameObject>();
     public List<GameObject> factories = new List<GameObject>();
     public List<GameObject> population = new List<GameObject>();
+    public List<GameObject> assignedpopulation = new List<GameObject>();
+    public List<GameObject> workertree = new List<GameObject>();
+    public List<GameObject> workerfarm = new List<GameObject>();
+    public List<GameObject> workerfactory = new List<GameObject>();
+    public List<GameObject> workermine = new List<GameObject>();
     public List<GameObject> selection = new List<GameObject>();
     public List<GameObject> windmill = new List<GameObject>();
+    public List<GameObject> farm = new List<GameObject>();
     public List<GameObject> house2 = new List<GameObject>();
     public List<GameObject> solarflower = new List<GameObject>();
+    public List<GameObject> townhall = new List<GameObject>();
 
     //Reference
     private Trees treeList;
@@ -23,12 +30,15 @@ public class GameManager : MonoBehaviour {
     public GameObject buildHouse2Button;
     public GameObject buildHouse3Button;
     public GameObject buildFactoryButton;
+    public GameObject buildTownHallButton;
     public GameObject buildWindmillButton;
     public GameObject buildSolarflowerButton;
     public GameObject buildFarmButton;
     public GameObject victoryText;
     public GameObject failText;
     public GameObject gameUI;
+    public GameObject tutBuildTownHallUI;
+    public GameObject tutBuildStartUI;
     private bool buildButtonBool;
     private bool buildButtonDoOnce;
 
@@ -51,10 +61,14 @@ public class GameManager : MonoBehaviour {
 
     //Declare
     public float windmillEnergy;
-    public float windmillPower;
+    public float windmillMultiplier;
     public float solarEnergy;
     public float solarPower;
     public float factoryPower;
+    public float woodMultiplier;
+    public float mineMultiplier;
+    public float happinessDecreaseMultiplier;
+    public float happinessIncreaseMultiplier;
 
     public float house2PowerCost;
     // Use this for initialization
@@ -67,14 +81,18 @@ public class GameManager : MonoBehaviour {
         turnCount = 0;
         doOnce = true;
         buildButtonBool = true;
+        mineMultiplier = .1f;
+        happinessIncreaseMultiplier = 1f;
+        happinessDecreaseMultiplier = .1f;
 
         //Resource Variables
-        windmillEnergy = .3f;
-        windmillPower = .15f;
+        windmillEnergy = .2f;
+        windmillMultiplier = .33f;
         solarEnergy = 1f;
         solarPower = .4f;
         factoryPower = 1f;
         house2PowerCost = .4f;
+        woodMultiplier = .7f;
     }
 	
 	// Update is called once per frame
@@ -85,44 +103,51 @@ public class GameManager : MonoBehaviour {
             StartCoroutine(GameTurnCycle());
             doOnce = false;
         }
-
-        //prevObject = hitObject;
-        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        //if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButton("Fire1") && doOnce)
-        //{
-        //    hitObject = hit.transform.gameObject;
-        //    selectionArrow.SetActive(true);
-        //}
-
-        //if (Physics.Raycast(ray, out hit, Mathf.Infinity) && Input.GetButtonDown("Fire1") && hit.transform.gameObject != hitObject)
-        //    selectionArrow.SetActive(false);
-
-
-        //if(turnSystem.Turn == TurnSystem.turn.GameTurn)
-        //{
-        //    Time.timeScale = 10f;
-        //}
-        //else
-        //{
-        //    Time.timeScale = 1f;
-        //}
+        if (townhall.Count > 0)
+            stats.townhallStarter = false;
 
         stats.population = population.Count;
+
+        //Tutorial
+        if(stats.townhallStarter)
+            tutBuildTownHallUI.SetActive(true);
+        else
+            tutBuildTownHallUI.SetActive(false);
     }
 
     //Calculate C02
     public void CalculateC02()
     {
-        stats.co2 = stats.co2 - -((co2Force - (trees.Count+ -factories.Count)) /100f);
+        stats.co2 = stats.co2 - -((co2Force - (trees.Count + -factories.Count)) /100f);
+    }
+
+    //Calculate Happiness
+    public void CalculateHappiness()
+    {
+        stats.happiness = stats.happiness - (population.Count * happinessDecreaseMultiplier) * Time.deltaTime;
+        stats.happiness = stats.happiness - ((workertree.Count + workerfactory.Count + workermine.Count) * happinessDecreaseMultiplier) * Time.deltaTime;
+        stats.happiness = stats.happiness + (workerfarm.Count * happinessIncreaseMultiplier) * Time.deltaTime;
+    }
+
+    //Calculate Wood
+    public void CalculateWood()
+    {
+        stats.wood = stats.wood + ((workertree.Count * stats.woodMultiplier)*Time.deltaTime);
     }
 
     //Calculate Power
     public void CalculatePower()
     {
-        stats.power = stats.power + (factories.Count*factoryPower/10f);
-        stats.power = stats.power + (windmill.Count * windmillPower / 10f);
-        stats.power = stats.power + (solarflower.Count * solarPower / 10f);
-        stats.power = stats.power - (house2.Count * house2PowerCost / 10f);
+        stats.power = stats.power + (factories.Count*factoryPower/10f) * Time.deltaTime;
+        stats.power = stats.power + (windmill.Count * windmillMultiplier / 10f) * Time.deltaTime;
+        stats.power = stats.power + (solarflower.Count * solarPower / 10f) * Time.deltaTime;
+        stats.power = stats.power - (house2.Count * house2PowerCost / 10f) * Time.deltaTime;
+    }
+
+    //Calculate Gem
+    public void CalculateGem()
+    {
+        stats.gem = stats.gem + (workermine.Count * mineMultiplier) * Time.deltaTime;
     }
 
     //Calculate Energy
@@ -140,6 +165,9 @@ public class GameManager : MonoBehaviour {
 
     public void OpenBuildButton()
     {
+        if (!buildButtonBool && stats.townhallStarter)
+            tutBuildStartUI.SetActive(true);
+
         if (buildButtonBool)
         {
             buildHouseButton.SetActive(true);
@@ -150,7 +178,9 @@ public class GameManager : MonoBehaviour {
             buildWindmillButton.SetActive(true);
             buildSolarflowerButton.SetActive(true);
             buildFarmButton.SetActive(true);
-            buildButtonBool = false;
+            buildTownHallButton.SetActive(true);
+            tutBuildStartUI.SetActive(false);
+            buildButtonBool = false;          
         }
 
         else if (!buildButtonBool)
@@ -163,6 +193,7 @@ public class GameManager : MonoBehaviour {
             buildWindmillButton.SetActive(false);
             buildSolarflowerButton.SetActive(false);
             buildFarmButton.SetActive(false);
+            buildTownHallButton.SetActive(false);
             buildButtonBool = true;
         }
     }

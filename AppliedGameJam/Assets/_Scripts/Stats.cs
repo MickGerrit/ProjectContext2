@@ -10,6 +10,8 @@ public class Stats : MonoBehaviour {
     public Slider happinessSlider;
     public Slider powerSlider;
     public Text populationAmount;
+    public Text assignedPopulationAmount;
+    public Text workersAmount;
     public Text happinessAmount;
     public Text woodAmount;
     public Text powerAmount;
@@ -24,7 +26,8 @@ public class Stats : MonoBehaviour {
     public float food;
     public float power;
     public float wood;
-    public float population;
+    public float woodMultiplier;
+    public int population;
     public float happiness;
     public float gem;
     public float energy;
@@ -35,12 +38,16 @@ public class Stats : MonoBehaviour {
     public int house1WoodCost = 15;
     public int house2WoodCost = 15;
     public int house2GemCost = 10;
+    public int house2PowerReqCost = 20;
     public int house3WoodCost = 35;
     public int house3GemCost = 15;
     public int farmWoodCost = 20;
     public int factoryWoodCost = 30;
     public int solarflowerWoodCost = 40;
     public int solarflowerGemCost = 20;
+    public int townhallWoodCost = 80;
+    public int townhallGemCost = 10;
+    public bool townhallStarter = true;
 
     // Use this for initialization
     void Start () {
@@ -51,6 +58,7 @@ public class Stats : MonoBehaviour {
         happiness = 50f;
         gem = 0f;
         energy = 0f;
+        woodMultiplier = .1f;
 
         //Initialize
         gameManager = FindObjectOfType<GameManager>();
@@ -62,11 +70,16 @@ public class Stats : MonoBehaviour {
         co2Slider.value = co2/100;
         happinessSlider.value = happiness/100;
         powerSlider.value = power/100;
-        woodAmount.text = wood.ToString();
+        woodAmount.text = wood.ToString("F0");
         powerAmount.text = power.ToString("F0");
-        happinessAmount.text = happiness.ToString();
-        populationAmount.text = population.ToString();
-        gemAmount.text = gem.ToString();
+        happinessAmount.text = happiness.ToString("F0");
+        populationAmount.text = (gameManager.population.Count + gameManager.assignedpopulation.Count + gameManager.workertree.Count + gameManager.workerfactory.Count + gameManager.workermine.Count + gameManager.workerfarm.Count).ToString();
+        assignedPopulationAmount.text = (gameManager.assignedpopulation.Count+ gameManager.workertree.Count + gameManager.workerfactory.Count + gameManager.workermine.Count + gameManager.workerfarm.Count).ToString();
+        workersAmount.text = (gameManager.workertree.Count + gameManager.workerfactory.Count + gameManager.workermine.Count + gameManager.workerfarm.Count).ToString();
+        gemAmount.text = gem.ToString("F0");
         co2Amount.text = co2.ToString("F0");
+
+        if (co2 < 0)
+            co2 = 0;
     }
 }

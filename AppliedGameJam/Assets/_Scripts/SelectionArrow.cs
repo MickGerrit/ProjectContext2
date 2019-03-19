@@ -66,8 +66,8 @@ public class SelectionArrow : MonoBehaviour {
                     if (hit.transform.gameObject.tag == "Tree")
                     {
                         isSelectingTree = true;
-                        buttonGatherWood.SetActive(true);
-                        buttonGatherWood.GetComponent<SpriteRenderer>().enabled = true;
+                        //buttonGatherWood.SetActive(true);
+                        //buttonGatherWood.GetComponent<SpriteRenderer>().enabled = true;
                         offsetX = 0f;
                         offsetY = 2.5f;
                         offsetZ = -3f;
@@ -86,6 +86,44 @@ public class SelectionArrow : MonoBehaviour {
                         offsetY = 2.5f;
                         offsetZ = -3f;
                     }
+                    else if (hit.transform.gameObject.tag == "TownHall")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+                    else if (hit.transform.gameObject.tag == "Factory")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+                    else if (hit.transform.gameObject.tag == "Mine")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+                    else if (hit.transform.gameObject.tag == "House1")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+                    else if (hit.transform.gameObject.tag == "House2")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+                    else if (hit.transform.gameObject.tag == "House3")
+                    {
+                        offsetX = 0f;
+                        offsetY = 2.5f;
+                        offsetZ = -3f;
+                    }
+
+
                     if (hit.transform.gameObject.tag != "Tree")
                         isSelectingTree = false;
                     if (hit.transform.gameObject.tag != "Inhabitant")

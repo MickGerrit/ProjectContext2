@@ -18,7 +18,7 @@ public class Windmill : MonoBehaviour {
 
     public void DestroyWindmill()
     {
-        stats.wood += 5f;
+        stats.wood += Mathf.RoundToInt(stats.windmillWoodCost/2);
         gameManager.windmill.Remove(this.gameObject);
         Destroy(transform.gameObject, .1f);
     }

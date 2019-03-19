@@ -18,8 +18,8 @@ public class Factory : MonoBehaviour {
     
     public void DestoryFactory()
     {
-        stats.wood += stats.factoryWoodCost/2f;
-        gameManager.factories.Remove(this.gameObject);
+        stats.wood += Mathf.RoundToInt(stats.factoryWoodCost/2f);
+         gameManager.factories.Remove(this.gameObject);
         Destroy(transform.gameObject, .1f);
     }
 }
