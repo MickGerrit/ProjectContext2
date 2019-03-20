@@ -37,6 +37,9 @@ public class ObjectUIPositioner : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        if (Input.GetKeyDown(KeyCode.Escape) && isSelecting)
+            ExitWindow();
+
         prevObject = hitObject;
         if (isSelecting) {
             for (int i = 0; i < transform.childCount; i++) {

@@ -34,7 +34,6 @@ public class Trees : MonoBehaviour {
             for (int i = 0; i < occupance.occupanceAmount; i++)
             {
                 woodCounter -= 1;
-                stats.woodMultiplier += 1;
             }
         }
 

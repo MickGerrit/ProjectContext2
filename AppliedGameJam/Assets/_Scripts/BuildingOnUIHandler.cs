@@ -15,6 +15,7 @@ public class BuildingOnUIHandler : ObjectSelecter {
     public Animator animController;
     public Animator animController2;
     public Animator animController3;
+    public ObjectUIPositioner objectUIPositioner;
 
     private bool doOnce;
 
@@ -23,14 +24,16 @@ public class BuildingOnUIHandler : ObjectSelecter {
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();
         doOnce = true;
+        objectUIPositioner = transform.GetComponentInParent<ObjectUIPositioner>();
     }
-
-    // Update is called once per frame
-    void FixedUpdate() {
+    private void Update() {
         if (GetGameObjectOnClick(layerMask, sceneCamera).tag != "World Space") {
             clickedGameObject = GetGameObjectOnClick(layerMask, sceneCamera);
         }
-        if (clickedGameObject != null) {
+    }
+    // Update is called once per frame
+    void FixedUpdate() {
+        if (clickedGameObject != null && clickedGameObject == objectUIPositioner.hitObject) {
             objectInformationBox.text = clickedGameObject.GetComponent<Occupance>().informationAboutBuilding;
             occupanceAmountBox.text = clickedGameObject.GetComponent<Occupance>().occupanceAmount.ToString() + "/" + clickedGameObject.GetComponent<Occupance>().maximumOccupanceAmount.ToString();
             image.sprite = clickedGameObject.GetComponent<Occupance>().sprite;
@@ -161,21 +164,21 @@ public class BuildingOnUIHandler : ObjectSelecter {
             }
             else if (clickedGameObject.tag == "Tree")
             {
-                    GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.workertree.Count-1)];
                     gameManager.workertree.Remove(inhabitant);
                     gameManager.assignedpopulation.Add(inhabitant);
                     clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
             }
             else if (clickedGameObject.tag == "Factory")
             {
-                GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.workerfactory.Count-1)];
                 gameManager.workerfactory.Remove(inhabitant);
                 gameManager.assignedpopulation.Add(inhabitant);
                 clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
             }
             else if (clickedGameObject.tag == "Mine")
             {
-                GameObject inhabitant = gameManager.workermine[Random.Range(0, gameManager.assignedpopulation.Count)];
+                GameObject inhabitant = gameManager.workermine[Random.Range(0, gameManager.workermine.Count)];
                 gameManager.workermine.Remove(inhabitant);
                 gameManager.assignedpopulation.Add(inhabitant);
                 clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;

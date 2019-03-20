@@ -26,7 +26,6 @@ public class Stats : MonoBehaviour {
     public float food;
     public float power;
     public float wood;
-    public float woodMultiplier;
     public int population;
     public float happiness;
     public float gem;
@@ -36,9 +35,12 @@ public class Stats : MonoBehaviour {
     public int seedWoodCost = 1;
     public int windmillWoodCost = 10;
     public int house1WoodCost = 15;
+    public int house1PowerReqCost = 20;
+    public float house1PowerCost = 1f;
     public int house2WoodCost = 15;
+    public float house2PowerCost = 1.4f;
     public int house2GemCost = 10;
-    public int house2PowerReqCost = 20;
+    public int house2PowerReqCost = 60;
     public int house3WoodCost = 35;
     public int house3GemCost = 15;
     public int farmWoodCost = 20;
@@ -58,7 +60,6 @@ public class Stats : MonoBehaviour {
         happiness = 50f;
         gem = 0f;
         energy = 0f;
-        woodMultiplier = .1f;
 
         //Initialize
         gameManager = FindObjectOfType<GameManager>();

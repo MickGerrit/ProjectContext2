@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> selection = new List<GameObject>();
     public List<GameObject> windmill = new List<GameObject>();
     public List<GameObject> farm = new List<GameObject>();
+    public List<GameObject> house1 = new List<GameObject>();
     public List<GameObject> house2 = new List<GameObject>();
     public List<GameObject> solarflower = new List<GameObject>();
     public List<GameObject> townhall = new List<GameObject>();
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour {
     public GameObject gameUI;
     public GameObject tutBuildTownHallUI;
     public GameObject tutBuildStartUI;
+    public Mine mine;
     private bool buildButtonBool;
     private bool buildButtonDoOnce;
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private float co2Force;
     public float gameTurnDuration;
+    public float gemsEarned = 0f;
 
     //public Camera cam;
     //public LayerMask layerMask;
@@ -81,19 +84,18 @@ public class GameManager : MonoBehaviour {
         turnCount = 0;
         doOnce = true;
         buildButtonBool = true;
-        mineMultiplier = .1f;
-        happinessIncreaseMultiplier = 1f;
+        mineMultiplier = 120f;
+        woodMultiplier = 1f;
+        happinessIncreaseMultiplier = .8f;
         happinessDecreaseMultiplier = .1f;
 
         //Resource Variables
         windmillEnergy = .2f;
-        windmillMultiplier = .33f;
+        windmillMultiplier = 3f;
         solarEnergy = 1f;
         solarPower = .4f;
         factoryPower = 1f;
-        house2PowerCost = .4f;
-        woodMultiplier = .7f;
-    }
+}
 	
 	// Update is called once per frame
 	void Update () {
@@ -113,12 +115,18 @@ public class GameManager : MonoBehaviour {
             tutBuildTownHallUI.SetActive(true);
         else
             tutBuildTownHallUI.SetActive(false);
+
+        if (mine.minecartSent == false)
+        {
+            Debug.Log("MiepMiep");
+
+        }
     }
 
     //Calculate C02
     public void CalculateC02()
     {
-        stats.co2 = stats.co2 - -((co2Force - (trees.Count + -factories.Count)) /100f);
+        stats.co2 = stats.co2 - -((co2Force - (trees.Count + -factories.Count)) /100f) * Time.deltaTime;
     }
 
     //Calculate Happiness
@@ -132,7 +140,7 @@ public class GameManager : MonoBehaviour {
     //Calculate Wood
     public void CalculateWood()
     {
-        stats.wood = stats.wood + ((workertree.Count * stats.woodMultiplier)*Time.deltaTime);
+        stats.wood = stats.wood + (workertree.Count * woodMultiplier)*Time.deltaTime;
     }
 
     //Calculate Power
@@ -141,13 +149,14 @@ public class GameManager : MonoBehaviour {
         stats.power = stats.power + (factories.Count*factoryPower/10f) * Time.deltaTime;
         stats.power = stats.power + (windmill.Count * windmillMultiplier / 10f) * Time.deltaTime;
         stats.power = stats.power + (solarflower.Count * solarPower / 10f) * Time.deltaTime;
-        stats.power = stats.power - (house2.Count * house2PowerCost / 10f) * Time.deltaTime;
+        stats.power = stats.power - (house2.Count * stats.house2PowerCost / 10f) * Time.deltaTime;
+        stats.power = stats.power - (house1.Count * stats.house1PowerCost / 10f) * Time.deltaTime;
     }
 
     //Calculate Gem
     public void CalculateGem()
     {
-        stats.gem = stats.gem + (workermine.Count * mineMultiplier) * Time.deltaTime;
+        gemsEarned = stats.gem + (workermine.Count * mineMultiplier) * Time.deltaTime;
     }
 
     //Calculate Energy

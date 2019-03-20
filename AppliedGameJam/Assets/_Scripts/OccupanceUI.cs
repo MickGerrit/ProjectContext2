@@ -16,7 +16,6 @@ public class OccupanceUI : MonoBehaviour {
     public float offsetY;
     public float offsetZ;
 
-
     private void Start()
     {
         occupance = GetComponentInParent<Occupance>();
@@ -39,6 +38,16 @@ public class OccupanceUI : MonoBehaviour {
             offsetY = 2f;
             offsetZ = -5f;
         }
+        else if (occupance.gameObject.tag == "House2")
+        {
+            offsetY = 2f;
+            offsetZ = -5f;
+        }
+        else if (occupance.gameObject.tag == "Mine")
+        {
+            offsetY = 1f;
+            offsetZ = -5f;
+        }
         else
         {
             offsetY = 1f;
@@ -54,10 +63,14 @@ public class OccupanceUI : MonoBehaviour {
             occupanceMaxAmountText.GetComponent<Text>().color = Color.green;
             occupanceAmountText.GetComponent<Text>().color = Color.green;
         }
+        if (occupance.gameObject.tag == "Mine")
+        {
+            occupanceMaxAmountText.GetComponent<Text>().color = Color.magenta;
+            occupanceAmountText.GetComponent<Text>().color = Color.magenta;
+        }
 
         if (occupance.occupanceAmount > 0)
         {
-
             this.gameObject.GetComponent<Canvas>().enabled = true;
             occupanceAmountText.text = occupance.occupanceAmount.ToString("F0");
             occupanceMaxAmountText.text = occupance.maximumOccupanceAmount.ToString("F0");
