@@ -34585,7 +34585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 33480471
   ignoranceMask:
     serializedVersion: 2
     m_Bits: 65536
