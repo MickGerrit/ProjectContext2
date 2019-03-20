@@ -18,6 +18,6 @@ public class ObjectSelecter : MonoBehaviour {
             GameObject facedGameObject = hit.transform.gameObject;
             Debug.Log("Shooting raycast");
             return facedGameObject;
-        } else return clickedGameObject;
+        } else return null;
     }
 }
