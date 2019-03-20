@@ -12620,7 +12620,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c57e950fbf2fc324896e636e0170bd13, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57e950fbf2fc324896e636e0170bd13, type: 3}
@@ -13182,7 +13182,7 @@ MonoBehaviour:
   facedGameObject: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   downwardRayOffset: 0.012
 --- !u!114 &432122028
 MonoBehaviour:
@@ -15932,7 +15932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -759, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &552037475
@@ -16173,7 +16173,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c57e950fbf2fc324896e636e0170bd13, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57e950fbf2fc324896e636e0170bd13, type: 3}
@@ -17830,7 +17830,7 @@ GameObject:
   - component: {fileID: 629040825}
   - component: {fileID: 629040824}
   - component: {fileID: 629040823}
-  m_Layer: 9
+  m_Layer: 4
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24523,7 +24523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &730310874
 Transform:
   m_ObjectHideFlags: 0
@@ -37575,7 +37575,7 @@ MonoBehaviour:
   facedGameObject: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   downwardRayOffset: 0.012
 --- !u!114 &1378076080
 MonoBehaviour:
@@ -37937,7 +37937,7 @@ MonoBehaviour:
   cam: {fileID: 534669904}
   layerMask:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 512
   prefab: {fileID: 0}
   planet: {fileID: 1205358164}
   animController: {fileID: 1116296782}
@@ -43390,7 +43390,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d89c7da11725be24cb9e2ecf20b9e877, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d89c7da11725be24cb9e2ecf20b9e877, type: 3}
       propertyPath: m_SelectedEditorRenderState
@@ -43445,27 +43445,6 @@ Prefab:
     - target: {fileID: 4183874978464838, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1278862691648442, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114885683789641768, guid: 1f79f4d403d73d1449adb404695bce3d,
-        type: 2}
-      propertyPath: layerMask.m_Bits
-      value: 4119809
-      objectReference: {fileID: 0}
-    - target: {fileID: 4183874978464838, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -56.905003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4183874978464838, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 2.036
-      objectReference: {fileID: 0}
-    - target: {fileID: 4183874978464838, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -81.853004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f79f4d403d73d1449adb404695bce3d, type: 2}
@@ -45327,7 +45306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1807112789
 Transform:
   m_ObjectHideFlags: 0

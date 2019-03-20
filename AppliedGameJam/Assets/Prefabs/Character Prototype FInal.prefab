@@ -917,8 +917,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278862691648442}
-  m_LocalRotation: {x: -0.32584062, y: -0.3595501, z: -0.2572434, w: 0.8356899}
-  m_LocalPosition: {x: 0.3589, y: 0.3562, z: -0.1395}
+  m_LocalRotation: {x: -0.37014213, y: -0.30025166, z: -0.569479, w: 0.6697295}
+  m_LocalPosition: {x: 0.5066, y: 0.091200024, z: -0.04980001}
   m_LocalScale: {x: 1.2500014, y: 1.2500006, z: 1.2500025}
   m_Children:
   - {fileID: 4905197827245726}
@@ -939,7 +939,7 @@ Transform:
   - {fileID: 4175325753197416}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -56.905003, y: 2.036, z: -81.853004}
 --- !u!4 &4206327333201184
 Transform:
   m_ObjectHideFlags: 1
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   facedGameObject: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   downwardRayOffset: 0.012
 --- !u!114 &114372733729065062
 MonoBehaviour:
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   speed: 0.8
   layerMask:
     serializedVersion: 2
-    m_Bits: 11521
+    m_Bits: 4119809
   rayInbetweenOffset: 0.3
   rayXPosition: 0.5
   sideRayLength: 0.01
