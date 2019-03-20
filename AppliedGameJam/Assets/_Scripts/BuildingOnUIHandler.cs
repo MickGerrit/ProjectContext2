@@ -164,21 +164,21 @@ public class BuildingOnUIHandler : ObjectSelecter {
             }
             else if (clickedGameObject.tag == "Tree")
             {
-                    GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                    GameObject inhabitant = gameManager.workertree[Random.Range(0, gameManager.workertree.Count-1)];
                     gameManager.workertree.Remove(inhabitant);
                     gameManager.assignedpopulation.Add(inhabitant);
                     clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
             }
             else if (clickedGameObject.tag == "Factory")
             {
-                GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.assignedpopulation.Count-1)];
+                GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.workerfactory.Count-1)];
                 gameManager.workerfactory.Remove(inhabitant);
                 gameManager.assignedpopulation.Add(inhabitant);
                 clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;
             }
             else if (clickedGameObject.tag == "Mine")
             {
-                GameObject inhabitant = gameManager.workermine[Random.Range(0, gameManager.assignedpopulation.Count)];
+                GameObject inhabitant = gameManager.workermine[Random.Range(0, gameManager.workermine.Count)];
                 gameManager.workermine.Remove(inhabitant);
                 gameManager.assignedpopulation.Add(inhabitant);
                 clickedGameObject.GetComponent<Occupance>().occupanceAmount -= 1;

@@ -16,7 +16,7 @@ public class Meteor : MonoBehaviour {
     private bool doOnce;
     private Vector3 movDirection;
 
-    public float maxTurns = 15;
+    public float maxTurns = 10;
     private Vector3 wantedPosition;
 	// Use this for initialization
 	void Start () {
