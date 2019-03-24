@@ -332,6 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4287261449387756}
+  - component: {fileID: 114430409546126774}
   m_Layer: 0
   m_Name: Town Hall
   m_TagString: TownHall
@@ -1272,6 +1273,17 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 0.2, y: -0.2}
   m_UseGraphicAlpha: 1
+--- !u!114 &114430409546126774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333672088372022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e11cb1abd54cb542bfabbc72cbbb2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114467603047244960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1496,7 +1508,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: c8c80c5b03f5c7e40b07eb2170e667e5, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 20
 --- !u!222 &222064643191718758
 CanvasRenderer:
   m_ObjectHideFlags: 1

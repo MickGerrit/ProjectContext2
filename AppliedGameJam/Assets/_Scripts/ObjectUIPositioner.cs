@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class ObjectUIPositioner : MonoBehaviour {
+public class ObjectUIPositioner : ObjectSelecter {
 
     private Transform offsetLoc;
     private Transform followTarget;
@@ -25,9 +26,18 @@ public class ObjectUIPositioner : MonoBehaviour {
     public GameObject hitObject;
     public GameObject prevObject;
 
+    public List <GameObject> uiGameObjectsToBlockClicks;
+    public bool blockOtherRayCasts;
+    public bool hittingRaycast;
+
+    public BuildingOnUIHandler buildingOnUIHandler;
+    public PlanetRotationControls planetRotationControls;
+
 
     // Use this for initialization
     void Start() {
+        planetRotationControls = GameObject.Find("Planet").GetComponent<PlanetRotationControls>();
+        hittingRaycast = false;
         canSelect = true;
         doOnce = true;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -36,45 +46,48 @@ public class ObjectUIPositioner : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        //Check for those ui elements
+        blockOtherRayCasts = IsSelectingAGameObjectInList(uiGameObjectsToBlockClicks);
 
         if (Input.GetKeyDown(KeyCode.Escape) && isSelecting)
             ExitWindow();
-
-        prevObject = hitObject;
-        if (isSelecting) {
+        
+        if (isSelecting && hitObject != null) {
             for (int i = 0; i < transform.childCount; i++) {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
             this.transform.position = new Vector3(hitObject.transform.position.x + offsetX, hitObject.transform.position.y + offsetY, zPosition);
             this.transform.LookAt(playerCamLoc);
-        } else {
-            hitObject = planet.transform.gameObject;
+        }
+        if (!isSelecting || blockOtherRayCasts) {
+            hitObject = null;
             for (int i = 0; i < transform.childCount; i++) {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
         }
-
-        if (canSelect) {
-            // Select
-            if (Input.GetButtonDown("Fire1") && canSelect) {
-                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, buildingLayerMask) && Input.GetButton("Fire1") && doOnce) {
-                    doOnce = false;
+        if (hittingRaycast && Input.GetButtonDown("Fire1")) {
                     isSelecting = true;
                     if (hit.transform.gameObject.tag != UITag) {
-                        hitObject = hit.transform.gameObject;
+                        prevObject = hit.transform.gameObject;
                     }
 
+        }
+        if (hittingRaycast && Input.GetButtonUp("Fire1")) {
+            if (hit.transform.gameObject == prevObject) {
+                buildingOnUIHandler.clickedGameObject = null;
+                if (hit.transform.gameObject.tag == deselectTag) {
+                    isSelecting = false;
                 }
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity) && Input.GetButtonDown("Fire1") && hit.transform.gameObject != hitObject) {
-                    if (hit.transform.gameObject.tag == deselectTag) {
-                        isSelecting = false;
-                    }
-                }
+                hitObject = hit.transform.gameObject;
+                planetRotationControls.rotX = 0;
+                planetRotationControls.rotY = 0;
             }
         }
-        if (Input.GetButtonUp("Fire1"))
-            doOnce = true;
+    }
+
+    private void FixedUpdate() {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        hittingRaycast = Physics.Raycast(ray, out hit, Mathf.Infinity, buildingLayerMask);
     }
 
     public void ExitWindow() {

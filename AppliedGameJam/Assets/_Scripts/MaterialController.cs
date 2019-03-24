@@ -3,19 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MaterialController : MonoBehaviour {
-    public GameObject gameobject;
-    public Material mat;
-    // Use this for initialization
-    void Start () {
-        SetAlpha(gameobject, 0, mat);
-    }
 	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            SetAlpha(gameobject, Random.Range(0f, 1f), mat);
-        }
-	}
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        //    SetAlpha(gameobject, Random.Range(0f, 1f), mat);
+        //}
+    
 
     //Use unity's standard shader with rendering mode on Fade or Transparent
     public void SetAlpha(GameObject parentGameObject, float alphaValue, Material requestedMaterial) {

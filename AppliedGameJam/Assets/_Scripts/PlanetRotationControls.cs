@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-public class PlanetRotationControls : MonoBehaviour {
+public class PlanetRotationControls : ObjectSelecter {
     public LayerMask layerMask;
     public LayerMask ignoranceMask;
     [SerializeField]
@@ -10,10 +12,10 @@ public class PlanetRotationControls : MonoBehaviour {
     private float smoothingAfterRot = 7;
 
     [SerializeField]
-    private float rotX;
+    public float rotX;
 
     [SerializeField]
-    private float rotY;
+    public float rotY;
 
     public Camera cam;
     private bool isControllingRotating;
@@ -57,6 +59,9 @@ public class PlanetRotationControls : MonoBehaviour {
     public GameObject zoomOutButton;
     public GameObject zoomInButton;
 
+    public List<GameObject> uiGameObjectsToBlockClicks;
+    public bool isSelectingUIObject;
+
     private void Start() {
         isControllingRotating = false;
         staticRotationSpeedCur = 0;
@@ -69,10 +74,14 @@ public class PlanetRotationControls : MonoBehaviour {
 
 
     private void Update() {
+        isSelectingUIObject = IsSelectingAGameObjectInList(uiGameObjectsToBlockClicks);
+        SphereMouseControl();
+        if (isSelectingUIObject) {
+            return;
+        }
             relativeCursorPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             //if (Vector2.Distance(relativeCursorPosition - new Vector2(0.5f, 0.5f), Vector2.zero) <= middleScreenZoomOutRadius && doubleClick && zoomIn) ZoomOut();
-
-        SphereMouseControl();
+            
         
         DoubleClick();
         if (Input.GetButton("Fire1")) {
@@ -86,6 +95,10 @@ public class PlanetRotationControls : MonoBehaviour {
         if (!isControllingRotating) {
             Invoke("StaticRotation", staticRotationInvokeTime);
         } else {
+            staticRotationSpeedCur = 0;
+            CancelInvoke();
+        }
+        if (isSelectingUIObject) {
             staticRotationSpeedCur = 0;
             CancelInvoke();
         }
@@ -108,9 +121,8 @@ public class PlanetRotationControls : MonoBehaviour {
 
     private void SphereMouseControl() {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
         //Drag controls of planet
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask)) {
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask) && !isSelectingUIObject) {
             if (hit.transform != null) {
                 isControllingRotating = true;
             }
@@ -123,7 +135,7 @@ public class PlanetRotationControls : MonoBehaviour {
             rotX = Input.GetAxis("Mouse X") * rotSpeed * Mathf.Deg2Rad;
             rotY = Input.GetAxis("Mouse Y") * rotSpeed * Mathf.Deg2Rad;
             canRotateTowardsDestPoint = false;
-        } else {
+        } else{
             if (doubleClick) {
                 canRotateTowardsDestPoint = true;
             }
@@ -132,6 +144,7 @@ public class PlanetRotationControls : MonoBehaviour {
         }
         transform.RotateAround(transform.position, Vector3.up, -rotX);
         transform.RotateAround(transform.position, Vector3.right, rotY);
+        
         
 
         if (hit.transform == null && doubleClick) {

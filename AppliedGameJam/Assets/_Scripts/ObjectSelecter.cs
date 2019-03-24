@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ObjectSelecter : MonoBehaviour {
     public Camera sceneCamera;
@@ -19,5 +20,17 @@ public class ObjectSelecter : MonoBehaviour {
             Debug.Log("Shooting raycast");
             return facedGameObject;
         } else return null;
+    }
+
+    public bool IsSelectingAGameObjectInList(List<GameObject> gameObjectList) {
+        if (EventSystem.current.IsPointerOverGameObject()) {
+            if (gameObjectList.Contains(EventSystem.current.currentSelectedGameObject)) {
+                return true;
+            }
+        }
+        if (!EventSystem.current.IsPointerOverGameObject() || !gameObjectList.Contains(EventSystem.current.currentSelectedGameObject)) {
+            return false;
+        }
+        return false;
     }
 }
