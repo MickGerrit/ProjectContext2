@@ -18,6 +18,19 @@ public class Stats : MonoBehaviour {
     public Text gemAmount;
     public Text co2Amount;
     public Slider energySlider;
+    public Text seedGemCostText;
+    public Text house1WoodCostText;
+    public Text house2WoodCostText;
+    public Text house2GemCostText;
+    public Text house3WoodCostText;
+    public Text house3GemCostText;
+    public Text townhallWoodCostText;
+    public Text townhallGemCostText;
+    public Text windmillWoodCostText;
+    public Text factoryWoodCostText;
+    public Text farmWoodCostText;
+    public Text solarflowerWoodCostText;
+    public Text solarflowerGemCostText;
     private GameManager gameManager;
 
     public float co2;
@@ -32,7 +45,7 @@ public class Stats : MonoBehaviour {
     public float energy;
 
     //Building Cost
-    public int seedWoodCost = 1;
+    public int seedGemCost = 1;
     public int windmillWoodCost = 10;
     public int house1WoodCost = 15;
     public int house1PowerReqCost = 20;
@@ -51,6 +64,8 @@ public class Stats : MonoBehaviour {
     public int townhallGemCost = 10;
     public bool townhallStarter = true;
 
+    public float recycleMultiplier;
+
     // Use this for initialization
     void Start () {
         co2 = 50f;
@@ -60,7 +75,20 @@ public class Stats : MonoBehaviour {
         happiness = 50f;
         gem = 0f;
         energy = 0f;
-
+        recycleMultiplier = .33f;
+        seedGemCostText.text = seedGemCost.ToString("F0");
+        house1WoodCostText.text = house1WoodCost.ToString("F0");
+        house2WoodCostText.text = house2WoodCost.ToString("F0");
+        house2GemCostText.text = house2GemCost.ToString("F0");
+        house3WoodCostText.text = house3WoodCost.ToString("F0");
+        house3GemCostText.text = house3GemCost.ToString("F0");
+        townhallWoodCostText.text = townhallWoodCost.ToString("F0");
+        townhallGemCostText.text = townhallGemCost.ToString("F0");
+        windmillWoodCostText.text = windmillWoodCost.ToString("F0");
+        solarflowerWoodCostText.text = solarflowerWoodCost.ToString("F0");
+        solarflowerGemCostText.text = solarflowerGemCost.ToString("F0");
+        factoryWoodCostText.text = factoryWoodCost.ToString("F0");
+        farmWoodCostText.text = farmWoodCost.ToString("F0");
         //Initialize
         gameManager = FindObjectOfType<GameManager>();
 	}

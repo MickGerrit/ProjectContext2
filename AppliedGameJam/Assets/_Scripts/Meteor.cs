@@ -12,11 +12,9 @@ public class Meteor : MonoBehaviour {
 
     private float journeyLength;
 
-    private float turns;
     private bool doOnce;
     private Vector3 movDirection;
 
-    public float maxTurns = 10;
     private Vector3 wantedPosition;
 	// Use this for initialization
 	void Start () {
@@ -34,7 +32,7 @@ public class Meteor : MonoBehaviour {
             if (doOnce)
             {
                 movDirection = gameManager.gameObject.transform.position;
-                wantedPosition = Vector3.Lerp(meteorStartPos.transform.position, movDirection, (gameManager.turnCount + 1) / maxTurns);
+                wantedPosition = Vector3.Lerp(meteorStartPos.transform.position, movDirection, (gameManager.turnCount + 1) / gameManager.maxTurns);
                 doOnce = false;
             }
 

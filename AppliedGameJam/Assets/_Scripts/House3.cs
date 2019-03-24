@@ -6,7 +6,7 @@ public class House3 : MonoBehaviour {
 
     //Reference
     private GameManager gameManager;
-    private Stats stats;
+    public Stats stats;
 
     private void Awake()
     {

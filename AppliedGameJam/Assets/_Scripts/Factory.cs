@@ -6,7 +6,7 @@ public class Factory : MonoBehaviour {
 
     //Reference
     private GameManager gameManager;
-    private Stats stats;
+    public Stats stats;
 
     private void Awake()
     {

@@ -43,13 +43,12 @@ public class ObjectUIPositioner : ObjectSelecter {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         planet = GameObject.FindGameObjectWithTag("Planet").transform;
     }
-
     // Update is called once per frame
     void Update() {
         //Check for those ui elements
         blockOtherRayCasts = IsSelectingAGameObjectInList(uiGameObjectsToBlockClicks);
 
-        if (Input.GetKeyDown(KeyCode.Escape) && isSelecting)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) && isSelecting)
             ExitWindow();
         
         if (isSelecting && hitObject != null) {

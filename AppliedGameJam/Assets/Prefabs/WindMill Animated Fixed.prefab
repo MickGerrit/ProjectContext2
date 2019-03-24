@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4097484164201382}
   - component: {fileID: 95315896034438804}
-  - component: {fileID: 114436733888588158}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: WindMill Animated Fixed
   m_TagString: Windmill
   m_Icon: {fileID: 0}
@@ -71,9 +70,11 @@ GameObject:
   - component: {fileID: 33523873499341316}
   - component: {fileID: 23862771846769194}
   - component: {fileID: 64543028023554622}
-  m_Layer: 0
+  - component: {fileID: 114459042706803168}
+  - component: {fileID: 114815324903259922}
+  m_Layer: 25
   m_Name: polySurface5
-  m_TagString: Untagged
+  m_TagString: Windmill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +90,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4097484164201382}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4097484164201382
 Transform:
@@ -98,11 +99,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142269840198686}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8524084, y: 8.693083, z: -12.146832}
+  m_LocalPosition: {x: 90.993484, y: -29.440193, z: 45.499996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4191775302148304}
   - {fileID: 4005812467604374}
+  - {fileID: 4191775302148304}
   - {fileID: 4376293400540642}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,7 +119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4097484164201382}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4376293400540642
 Transform:
@@ -250,14 +251,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114436733888588158
+--- !u!114 &114459042706803168
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1142269840198686}
+  m_GameObject: {fileID: 1948251162735756}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f48e899dab6ef07438c0cd780bf8328d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+--- !u!114 &114815324903259922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948251162735756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationAboutBuilding: 'Windmill
+
+    -----------
+
+    Generate Power Without Workers'
+  maximumOccupanceAmount: 0
+  occupanceAmount: 0
+  sprite: {fileID: 21300000, guid: c428233de9d813d459bc073952b07dab, type: 3}

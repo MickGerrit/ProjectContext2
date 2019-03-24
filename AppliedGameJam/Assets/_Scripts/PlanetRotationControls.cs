@@ -51,7 +51,7 @@ public class PlanetRotationControls : ObjectSelecter {
 
 
     [SerializeField]
-    private float middleScreenZoomOutRadius = 0.05f;
+    private float middleScreenZoomOutRadius = 0.05f; // Default: 0.05f
 
     public bool zoomIn;
     public bool zoomOut;
