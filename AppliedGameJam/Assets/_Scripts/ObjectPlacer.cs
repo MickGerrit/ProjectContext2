@@ -45,7 +45,7 @@ public class ObjectPlacer : MonoBehaviour {
         canPlaceObjects = true;
         if (chosenObject.tag == "Windmill" && stats.wood >= stats.windmillWoodCost)
             prefab = chosenObject;
-        else if (chosenObject.tag == "Seed" && stats.wood >= stats.seedWoodCost)
+        else if (chosenObject.tag == "Seed" && stats.gem >= stats.seedGemCost)
             prefab = chosenObject;
         else if (chosenObject.tag == "House1" && stats.wood >= stats.house1WoodCost)
             prefab = chosenObject;

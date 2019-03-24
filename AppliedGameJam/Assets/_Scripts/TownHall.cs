@@ -6,7 +6,7 @@ public class TownHall : MonoBehaviour {
 
     //Reference
     private GameManager gameManager;
-    private Stats stats;
+    public Stats stats;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class TownHall : MonoBehaviour {
         }
     }
 
-    public void DestroySolarFlower()
+    public void DestroyTownHall()
     {
         stats.wood += Mathf.RoundToInt(stats.townhallWoodCost / 3);
         gameManager.townhall.Remove(this.gameObject);

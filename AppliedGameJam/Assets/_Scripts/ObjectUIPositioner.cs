@@ -33,11 +33,10 @@ public class ObjectUIPositioner : MonoBehaviour {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         planet = GameObject.FindGameObjectWithTag("Planet").transform;
     }
-
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && isSelecting)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) && isSelecting)
             ExitWindow();
 
         prevObject = hitObject;

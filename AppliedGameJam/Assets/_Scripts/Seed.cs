@@ -21,7 +21,7 @@ public class Seed : MonoBehaviour {
         gameManager = FindObjectOfType<GameManager>();
         planet = FindObjectOfType<PlanetRotationControls>().transform;
         stats = gameManager.GetComponent<Stats>();
-        stats.wood = stats.wood - stats.seedWoodCost;
+        stats.gem = stats.gem - stats.seedGemCost;
         turnCounter = gameManager.turnCount;
         doOnce = true;
     }

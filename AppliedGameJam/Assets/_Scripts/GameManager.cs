@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> farm = new List<GameObject>();
     public List<GameObject> house1 = new List<GameObject>();
     public List<GameObject> house2 = new List<GameObject>();
+    public List<GameObject> house3 = new List<GameObject>();
     public List<GameObject> solarflower = new List<GameObject>();
     public List<GameObject> townhall = new List<GameObject>();
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
     private Stats stats;
     private TurnSystem turnSystem;
     public Text turnCountText;
+    public Text maxTurnText;
     public GameObject buildTreeButton;
     public GameObject buildHouseButton;
     public GameObject buildHouse2Button;
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour {
     private bool buildButtonDoOnce;
 
     public int turnCount;
+    public float maxTurns;
     private bool doOnce;
     
     [SerializeField]
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour {
         stats = GetComponent<Stats>();
         treeList = GetComponent<Trees>();
         turnSystem = GetComponent<TurnSystem>();
+        maxTurnText.text = maxTurns.ToString();
         co2Force = trees.Count;
         gameTurnDuration = 5f;
         turnCount = 0;
