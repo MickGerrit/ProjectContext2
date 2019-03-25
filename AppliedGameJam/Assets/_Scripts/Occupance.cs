@@ -9,4 +9,8 @@ public class Occupance : MonoBehaviour {
     public int maximumOccupanceAmount;
     public int occupanceAmount;
     public Sprite sprite;
+    
+
+    public bool canAssign;
+    
 }

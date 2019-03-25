@@ -8,7 +8,7 @@ public class Solarflower : MonoBehaviour {
     private GameManager gameManager;
     private Stats stats;
 
-    private void Awake()
+    public void OnAwake()
     {
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();

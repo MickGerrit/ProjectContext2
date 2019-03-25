@@ -68,7 +68,6 @@ GameObject:
   - component: {fileID: 23817279031873786}
   - component: {fileID: 64866103705095168}
   - component: {fileID: 114528442015585302}
-  - component: {fileID: 114281529839314736}
   m_Layer: 19
   m_Name: group3_pasted__group1_pasted__pasted__pCube3
   m_TagString: House1
@@ -267,6 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4040614475462536}
+  - component: {fileID: 114013574362622306}
   m_Layer: 19
   m_Name: House
   m_TagString: House1
@@ -1079,6 +1079,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 8287241246674394388dce19cd7b0807, type: 3}
+--- !u!114 &114013574362622306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545071705785882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c52207b4158a14daaece517c04502a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
 --- !u!114 &114046377802547046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1112,17 +1124,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: /
---- !u!114 &114281529839314736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1124431683731292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5c52207b4158a14daaece517c04502a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114314274333267238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,6 +1200,7 @@ MonoBehaviour:
   maximumOccupanceAmount: 3
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: b44ccea89e11f2b40be5dd6c97623d33, type: 3}
+  canAssign: 0
 --- !u!114 &114558942517774946
 MonoBehaviour:
   m_ObjectHideFlags: 1

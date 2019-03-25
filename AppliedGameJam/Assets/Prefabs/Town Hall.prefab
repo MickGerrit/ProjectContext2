@@ -1284,6 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11cb1abd54cb542bfabbc72cbbb2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
 --- !u!114 &114467603047244960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1459,6 +1460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11cb1abd54cb542bfabbc72cbbb2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
 --- !u!114 &114961379405769384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1491,6 +1493,7 @@ MonoBehaviour:
   maximumOccupanceAmount: 5
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: 6b2f11be8795e8b4f994c40867d1f2d2, type: 3}
+  canAssign: 0
 --- !u!119 &119505763817435446
 Projector:
   m_ObjectHideFlags: 1

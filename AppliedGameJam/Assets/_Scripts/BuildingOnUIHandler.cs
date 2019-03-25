@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,25 +20,48 @@ public class BuildingOnUIHandler : ObjectSelecter {
 
     private bool doOnce;
 
+    public GameObject[] disableTheseGameObjectsWhenNotInRange;
+    public GameObject[] enableTheseGameObjectsWhenNotInRange;
+
+    public bool thisGameObjectIsInRange;
+
     // Use this for initialization
     private void Start() {
+        thisGameObjectIsInRange = false;
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();
         doOnce = true;
         objectUIPositioner = transform.GetComponentInParent<ObjectUIPositioner>();
     }
     private void Update() {
-        if (GetGameObjectOnClick(layerMask, sceneCamera).tag != "World Space") {
-            clickedGameObject = GetGameObjectOnClick(layerMask, sceneCamera);
+        if (objectUIPositioner.hitObject != null) {
+            clickedGameObject = objectUIPositioner.hitObject;
         }
-
-        if(clickedGameObject.tag == "Tree" || clickedGameObject.tag == "Mine")
+        if (clickedGameObject.tag == "Tree" || clickedGameObject.tag == "Mine")
             DestroyBuildingButton.SetActive(false);
         else
             DestroyBuildingButton.SetActive(true);
 
         if (Input.GetKeyDown(KeyCode.Delete))
             DestroyBuilding();
+
+        if (IsOneTownHallInRange()) {
+            for (int g = 0; g < disableTheseGameObjectsWhenNotInRange.Length; g++) {
+                disableTheseGameObjectsWhenNotInRange[g].SetActive(true);
+            }
+            for (int g = 0; g < enableTheseGameObjectsWhenNotInRange.Length; g++) {
+                enableTheseGameObjectsWhenNotInRange[g].SetActive(false);
+            }
+
+        } else if (!IsOneTownHallInRange()) {
+            for (int g = 0; g < disableTheseGameObjectsWhenNotInRange.Length; g++) {
+                disableTheseGameObjectsWhenNotInRange[g].SetActive(false);
+            }
+            for (int g = 0; g < enableTheseGameObjectsWhenNotInRange.Length; g++) {
+                enableTheseGameObjectsWhenNotInRange[g].SetActive(true);
+            }
+        }
+
     }
     // Update is called once per frame
     void FixedUpdate() {
@@ -48,6 +70,19 @@ public class BuildingOnUIHandler : ObjectSelecter {
             occupanceAmountBox.text = clickedGameObject.GetComponent<Occupance>().occupanceAmount.ToString() + "/" + clickedGameObject.GetComponent<Occupance>().maximumOccupanceAmount.ToString();
             image.sprite = clickedGameObject.GetComponent<Occupance>().sprite;
         }
+    }
+
+    private bool IsOneTownHallInRange() {
+        if (gameManager.townhall.Count > 0) {
+            for (int i = 0; i < gameManager.townhall.Count; i++) {
+                if (clickedGameObject != null) {
+                    if (Vector3.Distance(clickedGameObject.transform.position, gameManager.townhall[i].transform.position) <= gameManager.gameObject.GetComponent<ObjectsInRangeChecker>().radius) {
+                        return true;
+                    }
+                } else return false;
+            }
+        } else return false;
+        return false;
     }
 
     //Inhancement: here we can also put a function to check wich layer or tag the click gameobject has and than change a stat in the stat script

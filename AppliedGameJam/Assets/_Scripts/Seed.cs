@@ -16,7 +16,7 @@ public class Seed : MonoBehaviour {
 
     private bool doOnce;
 
-    private void Awake()
+    public void OnAwake()
     {
         gameManager = FindObjectOfType<GameManager>();
         planet = FindObjectOfType<PlanetRotationControls>().transform;

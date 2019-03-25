@@ -8,7 +8,7 @@ public class Farm : MonoBehaviour {
     private GameManager gameManager;
     public Stats stats;
 
-    private void Awake()
+    public void OnAwake()
     {
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();

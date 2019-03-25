@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4097484164201382}
   - component: {fileID: 95315896034438804}
+  - component: {fileID: 114519515609866334}
   m_Layer: 25
   m_Name: WindMill Animated Fixed
   m_TagString: Windmill
@@ -70,7 +71,6 @@ GameObject:
   - component: {fileID: 33523873499341316}
   - component: {fileID: 23862771846769194}
   - component: {fileID: 64543028023554622}
-  - component: {fileID: 114459042706803168}
   - component: {fileID: 114815324903259922}
   m_Layer: 25
   m_Name: polySurface5
@@ -251,12 +251,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114459042706803168
+--- !u!114 &114519515609866334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1948251162735756}
+  m_GameObject: {fileID: 1142269840198686}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f48e899dab6ef07438c0cd780bf8328d, type: 3}
@@ -282,3 +282,4 @@ MonoBehaviour:
   maximumOccupanceAmount: 0
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: c428233de9d813d459bc073952b07dab, type: 3}
+  canAssign: 0

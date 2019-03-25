@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TownHall : MonoBehaviour {
 
+    private List<GameObject> buildingsInRange;
+
     //Reference
     private GameManager gameManager;
     public Stats stats;
 
-    private void Awake()
+    public void OnAwake()
     {
+        buildingsInRange = new List<GameObject>();
         gameManager = FindObjectOfType<GameManager>();
         stats = gameManager.GetComponent<Stats>();
         gameManager.townhall.Add(this.gameObject);
@@ -26,4 +29,5 @@ public class TownHall : MonoBehaviour {
         gameManager.townhall.Remove(this.gameObject);
         Destroy(transform.gameObject, .1f);
     }
+    
 }

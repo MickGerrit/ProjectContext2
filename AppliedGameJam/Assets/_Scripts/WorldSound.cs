@@ -31,7 +31,6 @@ public class WorldSound : ObjectSelecter {
     void Update() {
         if (Input.GetButtonDown("Fire1")) {
             clickedGameObject = GetGameObjectOnClick(layerMask, sceneCamera);
-            Debug.Log(clickedGameObject.name);
         } else {
             clickedGameObject = null;
         }

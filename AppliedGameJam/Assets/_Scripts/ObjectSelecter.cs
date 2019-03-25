@@ -22,6 +22,16 @@ public class ObjectSelecter : MonoBehaviour {
         } else return null;
     }
 
+    public GameObject GetGameObjectWhileHovering(LayerMask layerMask, Camera camera) {
+        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask)) {
+            GameObject facedGameObject = hit.transform.gameObject;
+            Debug.Log("Shooting raycast");
+            return facedGameObject;
+        } else return null;
+    }
+
     public bool IsSelectingAGameObjectInList(List<GameObject> gameObjectList) {
         if (EventSystem.current.IsPointerOverGameObject()) {
             if (gameObjectList.Contains(EventSystem.current.currentSelectedGameObject)) {

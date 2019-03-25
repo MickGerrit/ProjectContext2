@@ -46,14 +46,39 @@ public class ObjectPlacer : ObjectSelecter {
     private void Update() {
         isUsingButton = IsSelectingAGameObjectInList(buildingPlaceButtons);
         if (instantiatedPrefab != null) {
-            townHalls = objectsInrangeChecker.GetObjectsInRange(instantiatedPrefab.transform.position, objectsInrangeChecker.radius, "TownHall");
+            townHalls = objectsInrangeChecker.GetObjectsInRange(instantiatedPrefab.transform.position, objectsInrangeChecker.radius-2f, "TownHall");
         }
         
 
         if (Input.GetButtonUp("Fire1") && !isUsingButton && !canInstantiateObject && hitPlanet && townHalls.Count > 0) { // when placed inside a town hall radius
             Debug.Log("Placed");
+            if (instantiatedPrefab.tag == "Windmill")
+                instantiatedPrefab.GetComponent<Windmill>().OnAwake();
+            else if (instantiatedPrefab.tag == "Seed")
+                instantiatedPrefab.GetComponent<Seed>().OnAwake();
+            else if (instantiatedPrefab.tag == "House1")
+                instantiatedPrefab.GetComponent<House>().OnAwake();
+            else if (instantiatedPrefab.tag == "House2")
+                instantiatedPrefab.GetComponent<House2>().OnAwake();
+            else if (instantiatedPrefab.tag == "House3")
+                instantiatedPrefab.GetComponent<House3>().OnAwake();
+            else if (instantiatedPrefab.tag == "Farm")
+                instantiatedPrefab.GetComponent<Farm>().OnAwake();
+            else if (instantiatedPrefab.tag == "Factory")
+                instantiatedPrefab.GetComponent<Factory>().OnAwake();
+            else if (instantiatedPrefab.tag == "Solarflower")
+                instantiatedPrefab.GetComponent<Solarflower>().OnAwake();
+            else if (instantiatedPrefab.tag == "TownHall") {
+                if ((townHalls.Count > 1) || gameManager.townhall.Count == 0) { //an exception for the first townhall placed and because it needs to ignore its own townhall
+                    instantiatedPrefab.GetComponent<TownHall>().OnAwake();
+                } else {
+                    Destroy(instantiatedPrefab);
+                    instantiatedPrefab = null;
+                }
+            }
+
             instantiatedPrefab = null;
-        } else if (townHalls.Count <= 0 && Input.GetButtonUp("Fire1")) { //When placed ouside a townhall radius
+        } else if ((townHalls.Count <= 0 || (instantiatedPrefab.tag == "TownHall" && townHalls.Count <= 1)) && Input.GetButtonUp("Fire1")) { //When placed ouside a townhall radius
             Destroy(instantiatedPrefab);
             instantiatedPrefab = null;
         }

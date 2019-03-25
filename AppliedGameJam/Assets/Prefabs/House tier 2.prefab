@@ -82,6 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4422147926911736}
+  - component: {fileID: 114093982561469062}
   m_Layer: 20
   m_Name: House tier 2
   m_TagString: House2
@@ -247,7 +248,6 @@ GameObject:
   - component: {fileID: 33409558725944738}
   - component: {fileID: 23540564227271748}
   - component: {fileID: 64011625251621772}
-  - component: {fileID: 114563115241335828}
   - component: {fileID: 114299875780424298}
   m_Layer: 20
   m_Name: polySurface13
@@ -682,6 +682,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: /
+--- !u!114 &114093982561469062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434131626149638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee918aa8b866c943a1ba8e275fe0ac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
 --- !u!114 &114177065637055896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,6 +725,7 @@ MonoBehaviour:
   maximumOccupanceAmount: 6
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: 0d68e75d24c565f49a0b5d847a344e6c, type: 3}
+  canAssign: 0
 --- !u!114 &114404506032936586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,18 +773,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 0.1, y: -0.1}
   m_UseGraphicAlpha: 1
---- !u!114 &114563115241335828
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1843594644862972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee918aa8b866c943a1ba8e275fe0ac2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 0}
 --- !u!114 &114593293167532062
 MonoBehaviour:
   m_ObjectHideFlags: 1

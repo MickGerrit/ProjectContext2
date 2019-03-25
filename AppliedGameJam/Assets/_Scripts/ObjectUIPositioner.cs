@@ -33,6 +33,9 @@ public class ObjectUIPositioner : ObjectSelecter {
     public BuildingOnUIHandler buildingOnUIHandler;
     public PlanetRotationControls planetRotationControls;
 
+    public GameObject buildingCanvas;
+    public GameObject hoverCanvas;
+
 
     // Use this for initialization
     void Start() {
@@ -50,19 +53,16 @@ public class ObjectUIPositioner : ObjectSelecter {
 
         if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) && isSelecting)
             ExitWindow();
-        
+
         if (isSelecting && hitObject != null) {
-            for (int i = 0; i < transform.childCount; i++) {
-                transform.GetChild(i).gameObject.SetActive(true);
-            }
+            buildingCanvas.SetActive(true);
+            buildingCanvas.SetActive(true);
             this.transform.position = new Vector3(hitObject.transform.position.x + offsetX, hitObject.transform.position.y + offsetY, zPosition);
             this.transform.LookAt(playerCamLoc);
         }
         if (!isSelecting || blockOtherRayCasts) {
             hitObject = null;
-            for (int i = 0; i < transform.childCount; i++) {
-                transform.GetChild(i).gameObject.SetActive(false);
-            }
+            buildingCanvas.SetActive(false);
         }
         if (hittingRaycast && Input.GetButtonDown("Fire1")) {
                     isSelecting = true;
