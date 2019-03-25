@@ -126,7 +126,8 @@ public class PlanetRotationControls : ObjectSelecter {
             if (hit.transform != null) {
                 isControllingRotating = true;
             }
-        } else if (Input.GetButtonUp("Fire1")) {
+        }
+        if (!Input.GetButton("Fire1")) {
             isControllingRotating = false;
         }
         
