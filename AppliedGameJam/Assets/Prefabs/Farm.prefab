@@ -490,7 +490,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1567016631996584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.407629, y: 13.269018, z: 2.3198476}
+  m_LocalPosition: {x: -300.0516, y: 248.27199, z: -430.8464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4786173420573240}
@@ -963,9 +963,7 @@ MonoBehaviour:
 
     ---------
 
-    Produce food to keep your population happy
-
-    Requires power'
+    Info: produce food to keep your population happy'
   maximumOccupanceAmount: 6
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: b6d775f9d14fcf44784bb364ade63d76, type: 3}

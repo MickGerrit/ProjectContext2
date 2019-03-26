@@ -9,10 +9,6 @@ public class Stats : MonoBehaviour {
     public Slider co2Slider;
     public Slider happinessSlider;
     public Slider powerSlider;
-
-    public Slider co2UISlider;
-    public Slider happinessUISlider;
-    public Slider powerUISlider;
     public Text populationAmount;
     public Text assignedPopulationAmount;
     public Text workersAmount;
@@ -24,9 +20,7 @@ public class Stats : MonoBehaviour {
     public Slider energySlider;
     public Text seedGemCostText;
     public Text house1WoodCostText;
-    public Text house1PowerReqText;
     public Text house2WoodCostText;
-    public Text house2PowerReqText;
     public Text house2GemCostText;
     public Text house3WoodCostText;
     public Text house3GemCostText;
@@ -34,9 +28,7 @@ public class Stats : MonoBehaviour {
     public Text townhallGemCostText;
     public Text windmillWoodCostText;
     public Text factoryWoodCostText;
-    public Text factoryGemCostText;
     public Text farmWoodCostText;
-    public Text farmPowerReqText;
     public Text solarflowerWoodCostText;
     public Text solarflowerGemCostText;
     private GameManager gameManager;
@@ -54,74 +46,39 @@ public class Stats : MonoBehaviour {
 
     //Building Cost
     public int seedGemCost = 1;
-    public int windmillWoodCost;
-    public int house1WoodCost;
+    public int windmillWoodCost = 10;
+    public int house1WoodCost = 15;
     public int house1PowerReqCost = 20;
     public float house1PowerCost = 1f;
-    public int house2WoodCost;
-    public float house2PowerCost;
-    public int house2GemCost;
-    public int house2PowerReqCost;
-    public int house3WoodCost;
-    public int house3GemCost;
-    public int farmWoodCost;
-    public float farmPowerCost;
-    public int farmPowerReqCost = 60;
+    public int house2WoodCost = 15;
+    public float house2PowerCost = 1.4f;
+    public int house2GemCost = 10;
+    public int house2PowerReqCost = 60;
+    public int house3WoodCost = 35;
+    public int house3GemCost = 15;
+    public int farmWoodCost = 20;
     public int factoryWoodCost = 30;
-    public int factoryGemCost;
-    public int solarflowerWoodCost;
-    public int solarflowerGemCost;
-    public int townhallWoodCost;
-    public int townhallGemCost;
+    public int solarflowerWoodCost = 40;
+    public int solarflowerGemCost = 20;
+    public int townhallWoodCost = 80;
+    public int townhallGemCost = 10;
     public bool townhallStarter = true;
 
     public float recycleMultiplier;
 
     // Use this for initialization
     void Start () {
-        co2 = 100f;
+        co2 = 50f;
         food = 0f;
         power = 0f;
         wood = 0f;
-        happiness = 100f;
+        happiness = 50f;
         gem = 0f;
         energy = 0f;
         recycleMultiplier = .33f;
-
-        house1WoodCost = 30;
-        house1PowerCost = 1f;
-        house2WoodCost = 65;
-        house2PowerCost = 3f;
-        house2GemCost = 3;
-        house3WoodCost = 75;
-        house3GemCost = 10;
-        windmillWoodCost = 20;
-        townhallWoodCost = 150;
-        townhallGemCost = 0;
-        farmWoodCost = 50;
-        farmPowerCost = 2f;
-        factoryWoodCost = 90;
-        factoryGemCost = 5;
-        solarflowerWoodCost = 70;
-        solarflowerGemCost = 15;
-
-        house1PowerReqCost = 1*8;
-        house2PowerReqCost = 3*8;
-        farmPowerReqCost = 2*8;
-
-        //house1PowerReqCost = 1;
-        //house2PowerReqCost = 3;
-        //farmPowerReqCost = 2;
-
-
-
-
-
         seedGemCostText.text = seedGemCost.ToString("F0");
         house1WoodCostText.text = house1WoodCost.ToString("F0");
-        house1PowerReqText.text = house1PowerReqCost.ToString("F0");
         house2WoodCostText.text = house2WoodCost.ToString("F0");
-        house2PowerReqText.text = house2PowerReqCost.ToString("F0");
         house2GemCostText.text = house2GemCost.ToString("F0");
         house3WoodCostText.text = house3WoodCost.ToString("F0");
         house3GemCostText.text = house3GemCost.ToString("F0");
@@ -131,9 +88,7 @@ public class Stats : MonoBehaviour {
         solarflowerWoodCostText.text = solarflowerWoodCost.ToString("F0");
         solarflowerGemCostText.text = solarflowerGemCost.ToString("F0");
         factoryWoodCostText.text = factoryWoodCost.ToString("F0");
-        factoryGemCostText.text = factoryGemCost.ToString("F0");
         farmWoodCostText.text = farmWoodCost.ToString("F0");
-        farmPowerReqText.text = farmPowerReqCost.ToString("F0");
         //Initialize
         gameManager = FindObjectOfType<GameManager>();
 	}
@@ -144,10 +99,6 @@ public class Stats : MonoBehaviour {
         co2Slider.value = co2/100;
         happinessSlider.value = happiness/100;
         powerSlider.value = power/100;
-
-        co2UISlider.value = co2 / 100;
-        happinessUISlider.value = happiness / 100;
-        powerUISlider.value = power / 999 ;
         woodAmount.text = wood.ToString("F0");
         powerAmount.text = power.ToString("F0");
         happinessAmount.text = happiness.ToString("F0");
@@ -159,11 +110,5 @@ public class Stats : MonoBehaviour {
 
         if (co2 < 0)
             co2 = 0;
-        if (co2 > 100)
-            co2 = 100;
-        if (happiness > 100)
-            happiness = 100;
-        if (power > 999)
-            power = 999;
     }
 }

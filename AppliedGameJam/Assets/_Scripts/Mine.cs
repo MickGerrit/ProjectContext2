@@ -6,16 +6,17 @@ public class Mine : MonoBehaviour {
 
     //Reference
     private GameManager gameManager;
+    private SelectionArrow selectionArrow;
     private Stats stats;
     private TurnSystem turnSystem;
     private Occupance occupance;
     public GameObject minecart;
     public int mineCounter;
-    private bool doOnce;
-    private bool doOnce2;
+    private bool doOnce = true;
+    private bool doOnce2 = true;
     public bool minecartSent;
     private bool animationDoOnce;
-    private int mineTurnCost;
+    private int mineTurnCost = 2;
     private int turnCounter;
 
     public Animator animController;
@@ -26,12 +27,11 @@ public class Mine : MonoBehaviour {
         stats = gameManager.GetComponent<Stats>();
         occupance = this.GetComponent<Occupance>();
         turnSystem = gameManager.GetComponent<TurnSystem>();
+        selectionArrow = FindObjectOfType<SelectionArrow>();
         mineCounter = occupance.maximumOccupanceAmount;
         animationDoOnce = true;
         minecartSent = false;
-        mineTurnCost = 2;
-        doOnce = true;
-        doOnce2 = true;
+        turnCounter = gameManager.turnCount;
     }
 
     private void Update()
@@ -54,19 +54,15 @@ public class Mine : MonoBehaviour {
             doOnce2 = false;
         }
 
-        if(minecartSent == false)
-            turnCounter = gameManager.turnCount;
 
         if (turnSystem.Turn == TurnSystem.turn.PlayerTurn)
             doOnce = true;
 
-        if (turnSystem.Turn == TurnSystem.turn.GameTurn && minecartSent == false)
+        if (turnSystem.Turn == TurnSystem.turn.GameTurn)
         {
             if (occupance.occupanceAmount > 0)
             {
                 minecartSent = true;
-                doOnce2 = true;
-                turnCounter = gameManager.turnCount;
             }
         }
 
@@ -75,12 +71,16 @@ public class Mine : MonoBehaviour {
             StartCoroutine(MineCartGoAnimation());
             animationDoOnce = false;
         }
+
+
+
     }
 
     IEnumerator MineCartGoAnimation()
     {
         animController.Play("MineCartEnter");
         minecart.GetComponent<MeshRenderer>().enabled = false;
+        selectionArrow.isSelecting = false;
         yield return new WaitForSeconds(4.25f);
         minecart.SetActive(false);
 
@@ -89,6 +89,7 @@ public class Mine : MonoBehaviour {
     IEnumerator MineCartReturnAnimation()
     {
         animController.Play("MinecartReturn");
+        selectionArrow.isSelecting = false;
         yield return new WaitForSeconds(6f);
         stats.gem = Mathf.RoundToInt(gameManager.gemsEarned);
      
@@ -96,5 +97,7 @@ public class Mine : MonoBehaviour {
         minecart.SetActive(true);
         minecartSent = false;
         animationDoOnce = true;
+        doOnce2 = true;
+        turnCounter = gameManager.turnCount;
     }
 }

@@ -22,7 +22,6 @@ public class Meteor : MonoBehaviour {
         meteorStartPos = this.transform;
         journeyLength = Vector3.Distance(meteorStartPos.position, planet.transform.position);
         doOnce = true;
-        Debug.Log(gameManager.maxTurns);
     }
 	
 	// Update is called once per frame
@@ -33,8 +32,7 @@ public class Meteor : MonoBehaviour {
             if (doOnce)
             {
                 movDirection = gameManager.gameObject.transform.position;
-                wantedPosition = Vector3.Lerp(meteorStartPos.transform.position, movDirection, (gameManager.turnCount-1) / (gameManager.maxTurns*2));
-
+                wantedPosition = Vector3.Lerp(meteorStartPos.transform.position, movDirection, (gameManager.turnCount + 1) / gameManager.maxTurns);
                 doOnce = false;
             }
 
@@ -42,6 +40,5 @@ public class Meteor : MonoBehaviour {
         }
         if (turnSystem.Turn == TurnSystem.turn.PlayerTurn)
             doOnce = true;
-        this.transform.LookAt(movDirection);
     }
 }

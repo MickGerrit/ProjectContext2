@@ -114,13 +114,13 @@ public class ObjectPlacer : ObjectSelecter {
             prefab = chosenObject;
         else if (chosenObject.tag == "Seed" && stats.gem >= stats.seedGemCost)
             prefab = chosenObject;
-        else if (chosenObject.tag == "House1" && stats.wood >= stats.house1WoodCost && stats.power >= stats.house1PowerReqCost)
+        else if (chosenObject.tag == "House1" && stats.wood >= stats.house1WoodCost)
             prefab = chosenObject;
-        else if (chosenObject.tag == "House2" && stats.wood >= stats.house2WoodCost && stats.gem >= stats.house2GemCost && stats.power >= stats.house2PowerReqCost)
+        else if (chosenObject.tag == "House2" && stats.wood >= stats.house2WoodCost && stats.gem >= stats.house2GemCost)
             prefab = chosenObject;
         else if (chosenObject.tag == "House3" && stats.wood >= stats.house3WoodCost && stats.gem >= stats.house3GemCost)
             prefab = chosenObject;
-        else if (chosenObject.tag == "Farm" && stats.wood >= stats.farmWoodCost && stats.power >= stats.farmPowerReqCost)
+        else if (chosenObject.tag == "Farm" && stats.wood >= stats.farmWoodCost)
             prefab = chosenObject;
         else if (chosenObject.tag == "Factory" && stats.wood >= stats.factoryWoodCost)
             prefab = chosenObject;

@@ -467,7 +467,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434131626149638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.974257, y: 0.184906, z: 45.5}
+  m_LocalPosition: {x: 34.998158, y: 2.9550576, z: 45.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4136453264547508}
@@ -721,12 +721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  informationAboutBuilding: 'House tier 2
-
-    ----------------
-
-    Can hold up to 8 population but requires a lot of power'
-  maximumOccupanceAmount: 8
+  informationAboutBuilding: House tier 2
+  maximumOccupanceAmount: 6
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: 0d68e75d24c565f49a0b5d847a344e6c, type: 3}
   canAssign: 0
