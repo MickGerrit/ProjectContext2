@@ -16,15 +16,27 @@ public class Followers : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         doOnce = true;
-	}
+        followerAmount = 3;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        //max followers on 100% happiness = 6
-        followerAmount = Mathf.RoundToInt(gameManager.GetComponent<Stats>().happiness/16.7f);
+        //Max followers on 100% happiness = 6
+        //followerAmount = Random.Range(Mathf.RoundToInt(gameManager.GetComponent<Stats>().co2 / 16.7f);
+
+        //Followers are random taking CO2 into consideration
+        //followerAmount = Random.Range(Mathf.RoundToInt(gameManager.GetComponent<Stats>().co2 / 50f), Mathf.RoundToInt(gameManager.GetComponent<Stats>().co2 / 12.5f)) ;
+
+
 
         if (gameManager.GetComponent<TurnSystem>().Turn == TurnSystem.turn.GameTurn)
+        {
+            //Followers are completely random between
+            int followerMultiplier = Random.Range(gameManager.turnCount+1, 3+gameManager.turnCount*2);
+            followerAmount = Random.Range((gameManager.turnCount+2), (Mathf.RoundToInt(gameManager.turnCount*followerMultiplier/10))+6);
             doOnce = true;
+        }
+
 
 		if(gameManager.GetComponent<TurnSystem>().Turn == TurnSystem.turn.PlayerTurn && doOnce)
         {

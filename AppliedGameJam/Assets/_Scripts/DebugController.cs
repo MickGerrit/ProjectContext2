@@ -40,7 +40,7 @@ public class DebugController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            stats.food += 10f;
+            stats.happiness += 10f;
         }
         if (Input.GetKeyDown(KeyCode.R))
         {

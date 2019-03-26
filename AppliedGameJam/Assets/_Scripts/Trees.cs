@@ -6,7 +6,6 @@ public class Trees : MonoBehaviour {
 
     //Reference
     private GameManager gameManager;
-    private SelectionArrow selectionArrow;
     private Stats stats;
     private TurnSystem turnSystem;
     private Occupance occupance;
@@ -21,7 +20,6 @@ public class Trees : MonoBehaviour {
         stats = gameManager.GetComponent<Stats>();
         occupance = this.GetComponent<Occupance>();
         turnSystem = gameManager.GetComponent<TurnSystem>();
-        selectionArrow = FindObjectOfType<SelectionArrow>();
         gameManager.trees.Add(this.gameObject);
         woodCounter = occupance.maximumOccupanceAmount;
     }
@@ -59,7 +57,6 @@ public class Trees : MonoBehaviour {
         animController.Play("ChoppedTree1");
         animController.Play("ChoppedTree2");
         animController.Play("ChoppedTree3");
-        selectionArrow.isSelecting = false;
         gameManager.trees.Remove(this.gameObject);
         yield return new WaitForSeconds(1.25f);
         Destroy(transform.root.gameObject);

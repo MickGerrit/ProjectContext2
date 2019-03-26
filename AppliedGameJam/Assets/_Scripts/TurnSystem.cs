@@ -29,6 +29,7 @@ public class TurnSystem : MonoBehaviour {
                 playButton.SetActive(true);
                 planetRotationControls.staticRotationInvokeTime = 6f;
                 planetRotationControls.staticRotationSpeed = 15f;
+                gameManager.planetControls.isControllingRotating = true;
                 break;
 
             // The wandering playerState
@@ -42,6 +43,7 @@ public class TurnSystem : MonoBehaviour {
                 gameManager.CalculateGem();
                 gameManager.CalculateHappiness();
                 gameManager.LoseConditions();
+                gameManager.planetControls.isControllingRotating = false;
                 break;
 
             // The roaming playerState
