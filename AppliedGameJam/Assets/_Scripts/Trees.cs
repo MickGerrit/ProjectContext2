@@ -62,6 +62,6 @@ public class Trees : MonoBehaviour {
         selectionArrow.isSelecting = false;
         gameManager.trees.Remove(this.gameObject);
         yield return new WaitForSeconds(1.25f);
-        Destroy(transform.gameObject);
+        Destroy(transform.root.gameObject);
     }
 }

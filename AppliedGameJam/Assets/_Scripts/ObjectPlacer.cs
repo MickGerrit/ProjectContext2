@@ -15,7 +15,7 @@ public class ObjectPlacer : ObjectSelecter {
 
     private GameManager gameManager;
     private Stats stats;
-    GameObject instantiatedPrefab;
+    public GameObject instantiatedPrefab;
     private float randomYRotation;
     //Declare
     private bool doOnce;
@@ -23,6 +23,7 @@ public class ObjectPlacer : ObjectSelecter {
 
     [SerializeField] private List<GameObject> buildingPlaceButtons;
     [SerializeField] private bool isUsingButton;
+    
 
     private PlanetRotationControls planetRotationControls;
     private ObjectsInRangeChecker objectsInrangeChecker;
