@@ -21,8 +21,8 @@ public class SpawnHole : MonoBehaviour
         followTarget = transform.parent.GetComponent<Transform>().transform;
         playerCamLoc = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         populationLeftText.GetComponent<Outline>().enabled = false;
-        offsetY = 0f;
-        offsetZ = 0f;
+        offsetY = -1f;
+        offsetZ = -2f;
 
     }
 

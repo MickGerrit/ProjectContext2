@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PlanetRotationControls : ObjectSelecter {
     public LayerMask layerMask;
     public LayerMask ignoranceMask;
+    public TurnSystem turnSystem;
     [SerializeField]
     private float rotSpeed = 20;
 
@@ -18,7 +19,7 @@ public class PlanetRotationControls : ObjectSelecter {
     public float rotY;
 
     public Camera cam;
-    private bool isControllingRotating;
+    public bool isControllingRotating;
 
     [SerializeField]
     public float staticRotationSpeed = 15f;
@@ -123,7 +124,7 @@ public class PlanetRotationControls : ObjectSelecter {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         //Drag controls of planet
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) && Input.GetButtonDown("Fire1") && !Physics.Raycast(ray, Mathf.Infinity, ignoranceMask) && !isSelectingUIObject) {
-            if (hit.transform != null) {
+            if (hit.transform != null && turnSystem.Turn == TurnSystem.turn.PlayerTurn) {
                 isControllingRotating = true;
             }
         }

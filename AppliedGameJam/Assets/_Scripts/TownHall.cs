@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TownHall : MonoBehaviour {
 
-    private List<GameObject> buildingsInRange;
+    public List<GameObject> buildingsInRange;
 
     //Reference
     private GameManager gameManager;

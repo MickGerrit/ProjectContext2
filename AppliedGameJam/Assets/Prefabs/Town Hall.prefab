@@ -834,7 +834,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1333672088372022}
   m_LocalRotation: {x: -0.12584092, y: 0.42899793, z: -0.4102962, w: 0.7948471}
-  m_LocalPosition: {x: 0.3535221, y: 0.26216498, z: -0.26924703}
+  m_LocalPosition: {x: 26.792019, y: 13.042083, z: 6.029692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4326384482566542}
@@ -1284,6 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11cb1abd54cb542bfabbc72cbbb2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingsInRange: []
   stats: {fileID: 0}
 --- !u!114 &114467603047244960
 MonoBehaviour:
@@ -1460,6 +1461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e11cb1abd54cb542bfabbc72cbbb2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingsInRange: []
   stats: {fileID: 0}
 --- !u!114 &114961379405769384
 MonoBehaviour:
@@ -1489,7 +1491,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd299b22cebe8649a14d38b729ed981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  informationAboutBuilding: Town Hall
+  informationAboutBuilding: 'Town Hall
+
+    -------------
+
+    Creates an area for your population to live
+
+    - Can hold up to 5 population'
   maximumOccupanceAmount: 5
   occupanceAmount: 0
   sprite: {fileID: 21300000, guid: 6b2f11be8795e8b4f994c40867d1f2d2, type: 3}

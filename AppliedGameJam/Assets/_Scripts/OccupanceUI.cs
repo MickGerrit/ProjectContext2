@@ -25,7 +25,7 @@ public class OccupanceUI : MonoBehaviour {
         occupanceMaxAmountText.GetComponent<Outline>().enabled = false;
         if (occupance.gameObject.tag == "TownHall")
         {
-            offsetY = 1.5f;
+            offsetY = 1.8f;
             offsetZ = -5f;
         }
         else if (occupance.gameObject.tag == "Tree")

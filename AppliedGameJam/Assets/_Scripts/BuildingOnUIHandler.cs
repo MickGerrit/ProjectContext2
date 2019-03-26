@@ -11,6 +11,7 @@ public class BuildingOnUIHandler : ObjectSelecter {
     public Text occupanceAmountBox;
     private GameObject UIBox;
     public GameObject DestroyBuildingButton;
+    public GameObject assignerButton;
     public ObjectUIPositioner uiPositioner;
     public Image image;
     public Animator animController;
@@ -41,6 +42,11 @@ public class BuildingOnUIHandler : ObjectSelecter {
             DestroyBuildingButton.SetActive(false);
         else
             DestroyBuildingButton.SetActive(true);
+
+        if (clickedGameObject.tag == "Windmill" || clickedGameObject.tag == "Solarflower")
+            assignerButton.SetActive(false);
+        else
+            assignerButton.SetActive(true);
 
         if (Input.GetKeyDown(KeyCode.Delete))
             DestroyBuilding();
@@ -269,13 +275,34 @@ public class BuildingOnUIHandler : ObjectSelecter {
     {
         bool doOnce = true;
         uiPositioner.ExitWindow();
-        if ((clickedGameObject.tag == "TownHall" || clickedGameObject.tag == "House1" || clickedGameObject.tag == "House2" || clickedGameObject.tag == "House3") && doOnce)
+        if ((clickedGameObject.tag == "TownHall" || clickedGameObject.tag == "House1" || clickedGameObject.tag == "House2" || clickedGameObject.tag == "House3" || clickedGameObject.tag == "Farm" || clickedGameObject.tag == "Factory") && doOnce)
         {
-            for (int i = 0; i < clickedGameObject.GetComponent<Occupance>().occupanceAmount; i++)
+            if(clickedGameObject.tag == "Farm")
             {
-                GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count)];
-                gameManager.assignedpopulation.Remove(inhabitant);
-                gameManager.population.Add(inhabitant);
+                for (int i = 0; i < clickedGameObject.GetComponent<Occupance>().occupanceAmount; i++)
+                {
+                    GameObject inhabitant = gameManager.workerfarm[Random.Range(0, gameManager.workerfarm.Count)];
+                    gameManager.workerfarm.Remove(inhabitant);
+                    gameManager.assignedpopulation.Add(inhabitant);
+                }
+            }
+            else if (clickedGameObject.tag == "Factory")
+            {
+                for (int i = 0; i < clickedGameObject.GetComponent<Occupance>().occupanceAmount; i++)
+                {
+                    GameObject inhabitant = gameManager.workerfactory[Random.Range(0, gameManager.workerfactory.Count)];
+                    gameManager.workerfactory.Remove(inhabitant);
+                    gameManager.assignedpopulation.Add(inhabitant);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < clickedGameObject.GetComponent<Occupance>().occupanceAmount; i++)
+                {
+                    GameObject inhabitant = gameManager.assignedpopulation[Random.Range(0, gameManager.assignedpopulation.Count)];
+                    gameManager.assignedpopulation.Remove(inhabitant);
+                    gameManager.population.Add(inhabitant);
+                }
             }
         }
         if (clickedGameObject.tag == "TownHall" && doOnce)
@@ -316,10 +343,12 @@ public class BuildingOnUIHandler : ObjectSelecter {
 
         doOnce = false;
         Destroy(clickedGameObject.GetComponentInParent<Transform>().parent.gameObject);
+        doOnce = true;
     }
 
     private void NoWorkers()
     {
+        doOnce = true;
         if (doOnce)
         {
             if (gameManager.assignedpopulation.Count < 1)
@@ -333,6 +362,7 @@ public class BuildingOnUIHandler : ObjectSelecter {
 
     private void EveryoneIsWorking()
     {
+        doOnce = true;
         if (doOnce)
         {
             if (gameManager.assignedpopulation.Count < 1)
@@ -348,15 +378,13 @@ public class BuildingOnUIHandler : ObjectSelecter {
     IEnumerator NoWorkersFadeAnimation()
     {
         animController2.Play("NoWorkersFade");
-        yield return new WaitForSeconds(1.25f);
-        doOnce = true;
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator EveryoneIsWorkingFadeAnimation()
     {
         animController3.Play("EveryoneIsWorkingFade");
-        yield return new WaitForSeconds(1.25f);
-        doOnce = true;
+        yield return new WaitForSeconds(1f);
     }
 
 
