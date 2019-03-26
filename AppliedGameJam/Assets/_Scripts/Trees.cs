@@ -59,6 +59,6 @@ public class Trees : MonoBehaviour {
         animController.Play("ChoppedTree3");
         gameManager.trees.Remove(this.gameObject);
         yield return new WaitForSeconds(1.25f);
-        Destroy(transform.root.gameObject);
+        Destroy(transform.gameObject);
     }
 }

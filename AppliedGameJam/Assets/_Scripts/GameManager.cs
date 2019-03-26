@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 
     //Reference
     private Trees treeList;
-    public Stats stats;
+    private Stats stats;
     private TurnSystem turnSystem;
     public Text turnCountText;
     public Text maxTurnText;
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
     private bool doOnce2;
     
     [SerializeField]
-    public float co2Force;
+    private float co2Force;
     public float gameTurnDuration;
     public float gemsEarned = 0f;
 
